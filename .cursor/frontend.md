@@ -1,0 +1,23 @@
+# Frontend Rules – Next.js (App Router)
+
+- Use App Router (`/app`) exclusively
+- Default to Server Components; only `"use client"` when needed
+- Client Components: for UI interaction, hooks, browser APIs only
+- Keep Client Components small and focused
+- Co-locate UI with route when logical
+- Use `next/link` for navigation; avoid full reloads
+- Use `useRouter` or `usePathname` for programmatic navigation
+- Prefer streaming and partial rendering
+- Optimize images with `next/image`
+- Use `next/font` for fonts
+- Use Tailwind or consistent CSS framework
+- Avoid inline styles except dynamic values
+- Components: `PascalCase`; hooks: `useCamelCase`; files: `kebab-case`
+- Variables/functions: `camelCase`; constants: `UPPER_SNAKE_CASE`
+- Absolute imports with `@/*`
+- One main export per file
+- Files < 300 lines
+- UI components must be stateless if possible
+- Do not fetch sensitive data in Client Components
+- Avoid business logic in UI
+- Always handle loading and empty states gracefully

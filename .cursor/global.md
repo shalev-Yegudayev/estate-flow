@@ -1,0 +1,31 @@
+# Cursor Global Rules – AI Behavior
+
+- Always follow the frontend, backend, and infra rules strictly
+- Output code in TypeScript by default
+- Use idiomatic Next.js App Router patterns
+- Do not generate deprecated or experimental APIs
+- Avoid introducing new libraries unless justified
+- Keep generated files < 300 lines; prefer multiple focused files
+- Always separate Server and Client Components correctly
+- Never expose secrets, tokens, or environment variables
+- Always validate input and handle errors explicitly
+- Prefer small, reusable components and functions
+- Avoid duplicating logic; delegate to `/lib` or services
+- Always use absolute imports (`@/*`) where possible
+- Keep generated code readable, maintainable, and production-ready
+- Do not generate inline styles for static content; use Tailwind/CSS
+- Always include loading and error states for async data
+- For API routes:
+  - Use REST conventions strictly
+  - Return consistent JSON shapes
+  - Do not leak internal errors
+- Always respect caching rules (`cache`, `revalidate`, `no-store`)
+- Assume human will review code; prioritize clarity over cleverness
+- Avoid generating experimental syntax or unstable features
+- Always ask before generating large refactors or new architecture
+- **Translation / Internationalization (i18n):**
+  - Always use `next-intl` or the project’s approved i18n library
+  - All user-facing text must be translatable
+  - Avoid hardcoding strings in components or pages
+  - Use message IDs and `getTranslations` / `<FormattedMessage>` patterns
+  - Respect locale routing and dynamic translations
