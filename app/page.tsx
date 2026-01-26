@@ -113,7 +113,7 @@ export default function HomePage() {
   const showProperties = true;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <Navbar />
       
       {/* Main Content - Add padding top for fixed navbar */}
@@ -121,10 +121,10 @@ export default function HomePage() {
         <div className="max-w-[1440px] mx-auto px-4 md:px-8">
           {/* Header Section */}
           <div className="py-8 md:py-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
               My Properties
             </h1>
-            <p className="text-gray-600">
+            <p className="text-muted-foreground">
               {properties.length} {properties.length === 1 ? 'property' : 'properties'}
             </p>
           </div>
@@ -137,13 +137,13 @@ export default function HomePage() {
               ))}
             </div>
           ) : (
-            <EmptyState />
+            <EmptyState actionHref="/properties/new" />
           )}
         </div>
       </main>
 
       <Footer />
-      <FloatingActionButton />
+      <FloatingActionButton href="/properties/new" />
     </div>
   );
 }

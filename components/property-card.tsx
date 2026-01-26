@@ -1,77 +1,81 @@
 import { Bed, Bath, Maximize } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
+import Link from 'next/link';
+import { cn } from '@/components/ui/utils';
 
 type TagVariant = 'available' | 'occupied' | 'maintenance' | 'forSale';
 
 interface PropertyCardProps {
+  id: string | number;
   image: string;
-  tags: string[];
+  imageAlt?: string;
+  tags?: string[];
   address: string;
   type: string;
   bedrooms: number;
   bathrooms: number;
   sqft: number;
   price: string;
+  href?: string;
+  className?: string;
 }
 
-const tagVariantMap: Record<string, TagVariant> = {
+const TAG_VARIANT_MAP: Record<string, TagVariant> = {
   'Available': 'available',
   'Occupied': 'occupied',
   'Maintenance': 'maintenance',
   'For Sale': 'forSale',
   'ForSale': 'forSale',
-};
+} as const;
 
 export function PropertyCard({
+  id,
   image,
-  tags,
+  imageAlt,
+  tags = [],
   address,
   type,
   bedrooms,
   bathrooms,
   sqft,
   price,
+  href,
+  className,
 }: PropertyCardProps) {
-  return (
-    <div className="group cursor-pointer bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
-      {/* Property Image */}
+  const content = (
+    <>
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={image}
-          alt={address}
+          alt={imageAlt || address}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover"
-          loading="eager"
+          loading="lazy"
         />
       </div>
 
-      {/* Card Content */}
       <div className="p-5 space-y-3">
-        {/* Tags */}
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            {tags.map((tag, index) => (
-              <Badge key={index} variant={tagVariantMap[tag] || 'default'}>
+            {tags.map((tag) => (
+              <Badge key={tag} variant={TAG_VARIANT_MAP[tag] || 'default'}>
                 {tag}
               </Badge>
             ))}
           </div>
         )}
         
-        {/* Address */}
-        <h3 className="font-medium text-gray-900 text-lg">
+        <h3 className="font-medium text-foreground text-lg">
           {address}
         </h3>
 
-        {/* Property Type */}
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-muted-foreground">
           {type}
         </p>
 
-        {/* Key Details */}
-        <div className="flex items-center gap-4 text-sm text-gray-600">
+        <div className="flex items-center gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1.5">
             <Bed className="size-4" />
             <span>{bedrooms} bed</span>
@@ -86,13 +90,33 @@ export function PropertyCard({
           </div>
         </div>
 
-        {/* Price */}
-        <div className="pt-2 border-t border-gray-100">
-          <p className="text-2xl font-bold text-gray-900">
+        <div className="pt-2 border-t border-border">
+          <p className="text-2xl font-bold text-foreground">
             {price}
           </p>
         </div>
       </div>
+    </>
+  );
+
+  const cardClassName = cn(
+    'group bg-card rounded-xl border border-border overflow-hidden',
+    'hover:shadow-xl hover:scale-[1.02] transition-all duration-300',
+    href && 'cursor-pointer',
+    className
+  );
+
+  if (href) {
+    return (
+      <Link href={href} className={cardClassName}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <div className={cardClassName}>
+      {content}
     </div>
   );
 }

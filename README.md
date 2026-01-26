@@ -114,7 +114,7 @@ estate-flow/
 ### PropertyCard
 Displays property information including:
 - Property image
-- Status badge (Available/Occupied/Maintenance)
+- Tags (Available/Occupied/Maintenance/For Sale) - displayed above address, supports multiple tags
 - Address and property type
 - Bedrooms, bathrooms, and square footage
 - Rental price
@@ -160,7 +160,7 @@ For more deployment options, see the [Next.js deployment documentation](https://
 interface Property {
   id: number;
   image: string;
-  status: 'Available' | 'Occupied' | 'Maintenance';
+  tags: ('Available' | 'Occupied' | 'Maintenance' | 'For Sale')[];
   address: string;
   type: string;
   bedrooms: number;

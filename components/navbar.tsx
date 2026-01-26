@@ -1,6 +1,6 @@
 'use client';
 
-import { Bell, ChevronDown, Building2 } from 'lucide-react';
+import { Bell, ChevronDown, Building2, LucideIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -8,72 +8,163 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { forwardRef } from 'react';
+import Link from 'next/link';
+import { cn } from '@/components/ui/utils';
 
-const ProfileButton = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
-  (props, ref) => (
-    <button
+interface FilterOption {
+  label: string;
+  value: string;
+}
+
+interface ProfileMenuItem {
+  label: string;
+  href?: string;
+  onClick?: () => void;
+  variant?: 'default' | 'destructive';
+}
+
+interface User {
+  name: string;
+  initials: string;
+  avatar?: string;
+}
+
+interface NavbarProps {
+  logo?: {
+    icon?: LucideIcon;
+    text?: string;
+    href?: string;
+  };
+  filters?: FilterOption[];
+  selectedFilter?: string;
+  onFilterChange?: (value: string) => void;
+  user?: User;
+  profileMenuItems?: ProfileMenuItem[];
+  showNotifications?: boolean;
+  notificationCount?: number;
+  onNotificationClick?: () => void;
+}
+
+const DEFAULT_FILTERS: FilterOption[] = [
+  { label: 'All Properties', value: 'all' },
+  { label: 'Available', value: 'available' },
+  { label: 'Occupied', value: 'occupied' },
+  { label: 'Maintenance', value: 'maintenance' },
+];
+
+const DEFAULT_PROFILE_MENU_ITEMS: ProfileMenuItem[] = [
+  { label: 'Profile', href: '/profile' },
+  { label: 'Settings', href: '/settings' },
+  { label: 'Billing', href: '/billing' },
+  { label: 'Logout', onClick: () => {}, variant: 'destructive' },
+];
+
+const ProfileButton = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement> & { user: User }>(
+  ({ user, ...props }, ref) => (
+    <Button
       ref={ref}
+      variant="ghost"
+      className="flex items-center gap-2 px-2 md:px-3"
       {...props}
-      className="flex items-center gap-2 hover:bg-gray-100 px-2 md:px-3 py-2 rounded-lg transition-colors"
     >
       <Avatar className="size-8 md:size-9">
-        <AvatarFallback className="bg-[#2563EB] text-white text-sm">SY</AvatarFallback>
+        {user.avatar && <AvatarImage src={user.avatar} alt={user.name} />}
+        <AvatarFallback className="bg-primary text-primary-foreground text-sm">
+          {user.initials}
+        </AvatarFallback>
       </Avatar>
-      <span className="hidden sm:block text-sm font-medium text-gray-700">Shalev Yegudayev</span>
-      <ChevronDown className="hidden sm:block size-4 text-gray-500" />
-    </button>
+      <span className="hidden sm:block text-sm font-medium">{user.name}</span>
+      <ChevronDown className="hidden sm:block size-4 text-muted-foreground" />
+    </Button>
   )
 );
 ProfileButton.displayName = 'ProfileButton';
 
-export function Navbar() {
+export function Navbar({
+  logo = { icon: Building2, text: 'EstateFlow', href: '/' },
+  filters = DEFAULT_FILTERS,
+  selectedFilter = 'all',
+  onFilterChange,
+  user = { name: 'Shalev Yegudayev', initials: 'SY' },
+  profileMenuItems = DEFAULT_PROFILE_MENU_ITEMS,
+  showNotifications = true,
+  notificationCount = 1,
+  onNotificationClick,
+}: NavbarProps) {
+  const LogoIcon = logo.icon || Building2;
+  const selectedFilterLabel = filters.find(f => f.value === selectedFilter)?.label || filters[0]?.label;
+
   return (
-    <nav className="fixed top-0 left-0 right-0 h-[72px] bg-white border-b border-gray-200 z-50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 h-[72px] bg-background border-b border-border z-50 shadow-sm">
       <div className="h-full px-4 md:px-8 flex items-center justify-between max-w-[1440px] mx-auto">
-        {/* Logo */}
-        <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-          <Building2 className="size-7 md:size-8 text-[#2563EB]" />
-          <span className="text-lg md:text-xl font-semibold text-gray-900">EstateFlow</span>
-        </div>
+        <Link
+          href={logo.href || '/'}
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+        >
+          <LogoIcon className="size-7 md:size-8 text-primary" />
+          <span className="text-lg md:text-xl font-semibold text-foreground">{logo.text}</span>
+        </Link>
 
-        {/* Center - Filter Dropdown (hidden on mobile) */}
-        <div className="hidden md:flex flex-1 justify-center">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="gap-2 min-w-[160px]">
-                All Properties
-                <ChevronDown className="size-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="center">
-              <DropdownMenuItem>All Properties</DropdownMenuItem>
-              <DropdownMenuItem>Available</DropdownMenuItem>
-              <DropdownMenuItem>Occupied</DropdownMenuItem>
-              <DropdownMenuItem>Maintenance</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+        {filters.length > 0 && (
+          <div className="hidden md:flex flex-1 justify-center">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="gap-2 min-w-[160px]">
+                  {selectedFilterLabel}
+                  <ChevronDown className="size-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center">
+                {filters.map((filter) => (
+                  <DropdownMenuItem
+                    key={filter.value}
+                    onClick={() => onFilterChange?.(filter.value)}
+                  >
+                    {filter.label}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        )}
 
-        {/* Right side - Notification and Profile */}
         <div className="flex items-center gap-2 md:gap-4">
-          {/* Notification Bell */}
-          <button className="relative p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <Bell className="size-5 md:size-6 text-gray-600" />
-            <span className="absolute top-1 right-1 size-2 bg-[#2563EB] rounded-full"></span>
-          </button>
+          {showNotifications && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onNotificationClick}
+              className="relative"
+              aria-label="Notifications"
+            >
+              <Bell className="size-5 md:size-6 text-muted-foreground" />
+              {notificationCount > 0 && (
+                <span className="absolute top-1 right-1 size-2 bg-primary rounded-full" />
+              )}
+            </Button>
+          )}
 
-          {/* User Profile Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <ProfileButton />
+              <ProfileButton user={user} />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
-              <DropdownMenuItem className="text-red-600">Logout</DropdownMenuItem>
+              {profileMenuItems.map((item, index) => (
+                <DropdownMenuItem
+                  key={index}
+                  asChild={!!item.href}
+                  onClick={!item.href ? item.onClick : undefined}
+                  className={cn(item.variant === 'destructive' && 'text-destructive')}
+                >
+                  {item.href ? (
+                    <Link href={item.href}>{item.label}</Link>
+                  ) : (
+                    item.label
+                  )}
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
