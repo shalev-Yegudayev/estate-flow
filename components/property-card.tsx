@@ -1,10 +1,12 @@
 import { Bed, Bath, Maximize } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import type { PropertyStatus } from '@/types/property';
+import Image from 'next/image';
+
+type TagVariant = 'available' | 'occupied' | 'maintenance' | 'forSale';
 
 interface PropertyCardProps {
   image: string;
-  status: PropertyStatus;
+  tags: string[];
   address: string;
   type: string;
   bedrooms: number;
@@ -13,15 +15,17 @@ interface PropertyCardProps {
   price: string;
 }
 
-const statusColors: Record<PropertyStatus, string> = {
-  Available: 'bg-green-100 text-green-700 hover:bg-green-100',
-  Occupied: 'bg-blue-100 text-blue-700 hover:bg-blue-100',
-  Maintenance: 'bg-orange-100 text-orange-700 hover:bg-orange-100',
+const tagVariantMap: Record<string, TagVariant> = {
+  'Available': 'available',
+  'Occupied': 'occupied',
+  'Maintenance': 'maintenance',
+  'For Sale': 'forSale',
+  'ForSale': 'forSale',
 };
 
 export function PropertyCard({
   image,
-  status,
+  tags,
   address,
   type,
   bedrooms,
@@ -33,21 +37,29 @@ export function PropertyCard({
     <div className="group cursor-pointer bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
       {/* Property Image */}
       <div className="relative aspect-[4/3] overflow-hidden">
-        <img
+        <Image
           src={image}
           alt={address}
-          className="w-full h-full object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover"
+          loading="eager"
         />
-        {/* Status Badge Overlay */}
-        <div className="absolute top-3 right-3">
-          <Badge className={statusColors[status]}>
-            {status}
-          </Badge>
-        </div>
       </div>
 
       {/* Card Content */}
       <div className="p-5 space-y-3">
+        {/* Tags */}
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag, index) => (
+              <Badge key={index} variant={tagVariantMap[tag] || 'default'}>
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )}
+        
         {/* Address */}
         <h3 className="font-medium text-gray-900 text-lg">
           {address}

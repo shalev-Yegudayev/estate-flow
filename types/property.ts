@@ -1,9 +1,9 @@
-export type PropertyStatus = 'Available' | 'Occupied' | 'Maintenance';
+export type PropertyTag = 'Available' | 'Occupied' | 'Maintenance' | 'For Sale';
 
 export interface Property {
   id: number;
   image: string;
-  status: PropertyStatus;
+  tags: PropertyTag[];
   address: string;
   type: string;
   bedrooms: number;

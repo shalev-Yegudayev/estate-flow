@@ -19,9 +19,9 @@ const ProfileButton = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<H
       className="flex items-center gap-2 hover:bg-gray-100 px-2 md:px-3 py-2 rounded-lg transition-colors"
     >
       <Avatar className="size-8 md:size-9">
-        <AvatarFallback className="bg-[#2563EB] text-white text-sm">JD</AvatarFallback>
+        <AvatarFallback className="bg-[#2563EB] text-white text-sm">SY</AvatarFallback>
       </Avatar>
-      <span className="hidden sm:block text-sm font-medium text-gray-700">John Doe</span>
+      <span className="hidden sm:block text-sm font-medium text-gray-700">Shalev Yegudayev</span>
       <ChevronDown className="hidden sm:block size-4 text-gray-500" />
     </button>
   )

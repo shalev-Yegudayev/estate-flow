@@ -10,7 +10,7 @@ const properties: Property[] = [
   {
     id: 1,
     image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3VzZSUyMGV4dGVyaW9yfGVufDF8fHx8MTc2OTE1MjcyOHww&ixlib=rb-4.1.0&q=80&w=1080',
-    status: 'Available',
+    tags: ['Available'],
     address: '1234 Maple Street, San Francisco, CA',
     type: 'Single Family Home',
     bedrooms: 4,
@@ -21,7 +21,7 @@ const properties: Property[] = [
   {
     id: 2,
     image: 'https://images.unsplash.com/photo-1638454668466-e8dbd5462f20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBhcGFydG1lbnQlMjBidWlsZGluZ3xlbnwxfHx8fDE3NjkxNzY5MDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    status: 'Occupied',
+    tags: ['Occupied', 'For Sale'],
     address: '456 Park Avenue, New York, NY',
     type: 'Luxury Apartment',
     bedrooms: 2,
@@ -32,7 +32,7 @@ const properties: Property[] = [
   {
     id: 3,
     image: 'https://images.unsplash.com/photo-1664372623516-0b1540d6771e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb250ZW1wb3JhcnklMjBjb25kb3xlbnwxfHx8fDE3NjkxNzY5MDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    status: 'Available',
+    tags: ['Available'],
     address: '789 Ocean Drive, Miami, FL',
     type: 'Condo',
     bedrooms: 3,
@@ -43,7 +43,7 @@ const properties: Property[] = [
   {
     id: 4,
     image: 'https://images.unsplash.com/photo-1765765234094-bc009a3bba62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdWJ1cmJhbiUyMGZhbWlseSUyMGhvbWV8ZW58MXx8fHwxNzY5MDk2ODExfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    status: 'Occupied',
+    tags: ['Occupied'],
     address: '321 Elm Street, Austin, TX',
     type: 'Single Family Home',
     bedrooms: 3,
@@ -54,7 +54,7 @@ const properties: Property[] = [
   {
     id: 5,
     image: 'https://images.unsplash.com/photo-1624343385944-b99336163b50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0b3duaG91c2V8ZW58MXx8fHwxNzY5MTIwMzA0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    status: 'Maintenance',
+    tags: ['Maintenance'],
     address: '567 Pine Road, Seattle, WA',
     type: 'Townhouse',
     bedrooms: 3,
@@ -65,7 +65,7 @@ const properties: Property[] = [
   {
     id: 6,
     image: 'https://images.unsplash.com/photo-1768538120529-66bdd717e811?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMGhvdXNlJTIwcHJvcGVydHl8ZW58MXx8fHwxNzY5MTc2OTA0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    status: 'Available',
+    tags: ['Available', 'For Sale'],
     address: '890 Coastal Highway, Malibu, CA',
     type: 'Beach House',
     bedrooms: 5,
@@ -76,7 +76,7 @@ const properties: Property[] = [
   {
     id: 7,
     image: 'https://images.unsplash.com/photo-1742108351840-8164e19f8ba9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZXNpZGVudGlhbCUyMGFwYXJ0bWVudCUyMGV4dGVyaW9yfGVufDF8fHx8MTc2OTA4NjcyNHww&ixlib=rb-4.1.0&q=80&w=1080',
-    status: 'Occupied',
+    tags: ['Occupied'],
     address: '234 Downtown Blvd, Chicago, IL',
     type: 'Apartment',
     bedrooms: 1,
@@ -87,7 +87,7 @@ const properties: Property[] = [
   {
     id: 8,
     image: 'https://images.unsplash.com/photo-1645807380313-71980928cb8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2aWxsYSUyMHByb3BlcnR5fGVufDF8fHx8MTc2OTE1NjI0N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    status: 'Available',
+    tags: ['Available'],
     address: '678 Highland Avenue, Los Angeles, CA',
     type: 'Villa',
     bedrooms: 6,
@@ -98,7 +98,7 @@ const properties: Property[] = [
   {
     id: 9,
     image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkdXBsZXglMjBob3VzZXxlbnwxfHx8fDE3NjkxNzY5MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    status: 'Maintenance',
+    tags: ['Maintenance'],
     address: '901 Riverside Drive, Portland, OR',
     type: 'Duplex',
     bedrooms: 4,
