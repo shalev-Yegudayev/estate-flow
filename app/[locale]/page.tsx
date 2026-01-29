@@ -120,6 +120,7 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations('home');
+  const footerT = await getTranslations('footer');
 
   // Toggle this to see empty state
   const showProperties = true;
@@ -156,7 +157,7 @@ export default async function HomePage({ params }: Props) {
         </div>
       </main>
 
-      <Footer />
+      <Footer copyright={footerT('copyright')} />
       <FloatingActionButton href="/properties/new" />
     </div>
   );

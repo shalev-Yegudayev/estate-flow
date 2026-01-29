@@ -76,7 +76,7 @@ const he = {
   },
 
   footer: {
-    copyright: '© 2026 EstateFlow. כל הזכויות שמורות.',
+    copyright: '© כל הזכויות שמורות לEstateFlow',
     about: 'אודות',
     terms: 'תנאי שימוש',
     privacy: 'מדיניות פרטיות',

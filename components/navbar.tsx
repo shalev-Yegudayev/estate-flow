@@ -13,7 +13,7 @@ import { forwardRef } from 'react';
 import { Link } from '@/i18n/routing';
 import type { AppPathname } from '@/i18n/routing';
 import { cn } from '@/components/ui/utils';
-import LocaleSwitcher from '@/app/[locale]/components/LocaleSwitcher';
+import LocaleSwitcher from '@/components/LocaleSwitcher';
 
 interface FilterOption {
   label: string;
@@ -60,7 +60,7 @@ const DEFAULT_PROFILE_MENU_ITEMS: ProfileMenuItem[] = [
   { label: 'Profile', href: '/profile' },
   { label: 'Settings', href: '/settings' },
   { label: 'Billing', href: '/billing' },
-  { label: 'Logout', onClick: () => {}, variant: 'destructive' },
+  { label: 'Logout', onClick: () => { }, variant: 'destructive' },
 ];
 
 const ProfileButton = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement> & { user: User }>(

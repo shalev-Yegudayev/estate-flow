@@ -3,14 +3,24 @@ export const defaultLocale = 'en' as const;
 
 export type Locale = (typeof locales)[number];
 
-// Locale display names
-export const localeNames: Record<Locale, string> = {
-  en: 'English',
-  he: 'עברית',
-};
 
-// Text direction mapping
-export const localeDirections: Record<Locale, 'ltr' | 'rtl'> = {
-  en: 'ltr',
-  he: 'rtl',
+const FLAG_URL = (code: string) => `https://flagcdn.com/w80/${code}.png`;
+export const localeInfo: Record<Locale, {
+  name: string;
+  nativeName: string;
+  flag: string;
+  dir: 'ltr' | 'rtl';
+}> = {
+  en: {
+    name: 'English',
+    nativeName: 'English',
+    flag: FLAG_URL('us'),
+    dir: 'ltr',
+  },
+  he: {
+    name: 'Hebrew',
+    nativeName: 'עברית',
+    flag: FLAG_URL('il'),
+    dir: 'rtl',
+  },
 };
