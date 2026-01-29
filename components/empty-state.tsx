@@ -1,6 +1,7 @@
 import { LucideIcon } from 'lucide-react';
 import { Home } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import type { AppPathname } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
 
 interface EmptyStateProps {
@@ -8,7 +9,7 @@ interface EmptyStateProps {
   title?: string;
   description?: string;
   actionLabel?: string;
-  actionHref?: string;
+  actionHref?: AppPathname;
 }
 
 export function EmptyState({

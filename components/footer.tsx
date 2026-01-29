@@ -1,8 +1,9 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import type { AppPathname } from '@/i18n/routing';
 
 interface FooterLink {
   label: string;
-  href: string;
+  href: AppPathname;
 }
 
 interface FooterProps {

@@ -1,12 +1,13 @@
 import { LucideIcon, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/components/ui/utils';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import type { AppPathname } from '@/i18n/routing';
 
 interface FloatingActionButtonProps {
   icon?: LucideIcon;
   label?: string;
-  href: string;
+  href: AppPathname;
   className?: string;
 }
 

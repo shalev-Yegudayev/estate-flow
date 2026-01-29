@@ -10,8 +10,10 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { forwardRef } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import type { AppPathname } from '@/i18n/routing';
 import { cn } from '@/components/ui/utils';
+import LocaleSwitcher from '@/app/[locale]/components/LocaleSwitcher';
 
 interface FilterOption {
   label: string;
@@ -20,7 +22,7 @@ interface FilterOption {
 
 interface ProfileMenuItem {
   label: string;
-  href?: string;
+  href?: AppPathname;
   onClick?: () => void;
   variant?: 'default' | 'destructive';
 }
@@ -35,7 +37,7 @@ interface NavbarProps {
   logo?: {
     icon?: LucideIcon;
     text?: string;
-    href?: string;
+    href?: AppPathname;
   };
   filters?: FilterOption[];
   selectedFilter?: string;
@@ -131,6 +133,7 @@ export function Navbar({
         )}
 
         <div className="flex items-center gap-2 md:gap-4">
+          <LocaleSwitcher />
           {showNotifications && (
             <Button
               variant="ghost"
