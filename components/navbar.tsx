@@ -15,11 +15,6 @@ import type { AppPathname } from '@/i18n/routing';
 import { cn } from '@/components/ui/utils';
 import LocaleSwitcher from '@/components/LocaleSwitcher';
 
-interface FilterOption {
-  label: string;
-  value: string;
-}
-
 interface ProfileMenuItem {
   label: string;
   href?: AppPathname;
@@ -39,22 +34,12 @@ interface NavbarProps {
     text?: string;
     href?: AppPathname;
   };
-  filters?: FilterOption[];
-  selectedFilter?: string;
-  onFilterChange?: (value: string) => void;
   user?: User;
   profileMenuItems?: ProfileMenuItem[];
   showNotifications?: boolean;
   notificationCount?: number;
   onNotificationClick?: () => void;
 }
-
-const DEFAULT_FILTERS: FilterOption[] = [
-  { label: 'All Properties', value: 'all' },
-  { label: 'Available', value: 'available' },
-  { label: 'Occupied', value: 'occupied' },
-  { label: 'Maintenance', value: 'maintenance' },
-];
 
 const DEFAULT_PROFILE_MENU_ITEMS: ProfileMenuItem[] = [
   { label: 'Profile', href: '/profile' },
@@ -86,9 +71,6 @@ ProfileButton.displayName = 'ProfileButton';
 
 export function Navbar({
   logo = { icon: Building2, text: 'EstateFlow', href: '/' },
-  filters = DEFAULT_FILTERS,
-  selectedFilter = 'all',
-  onFilterChange,
   user = { name: 'Shalev Yegudayev', initials: 'SY' },
   profileMenuItems = DEFAULT_PROFILE_MENU_ITEMS,
   showNotifications = true,
@@ -96,7 +78,6 @@ export function Navbar({
   onNotificationClick,
 }: NavbarProps) {
   const LogoIcon = logo.icon || Building2;
-  const selectedFilterLabel = filters.find(f => f.value === selectedFilter)?.label || filters[0]?.label;
 
   return (
     <nav className="fixed top-0 left-0 right-0 h-[72px] bg-background border-b border-border z-50 shadow-sm">
@@ -108,29 +89,6 @@ export function Navbar({
           <LogoIcon className="size-7 md:size-8 text-primary" />
           <span className="text-lg md:text-xl font-semibold text-foreground">{logo.text}</span>
         </Link>
-
-        {filters.length > 0 && (
-          <div className="hidden md:flex flex-1 justify-center">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="gap-2 min-w-[160px]">
-                  {selectedFilterLabel}
-                  <ChevronDown className="size-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="center">
-                {filters.map((filter) => (
-                  <DropdownMenuItem
-                    key={filter.value}
-                    onClick={() => onFilterChange?.(filter.value)}
-                  >
-                    {filter.label}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        )}
 
         <div className="flex items-center gap-2 md:gap-4">
           <LocaleSwitcher />
