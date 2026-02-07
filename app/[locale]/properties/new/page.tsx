@@ -1,6 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { getDefaultOwnerId } from '@/lib/db/property';
-import { NewPropertyForm } from '@/components/new-property-form';
+import { NewPropertyForm } from '@/components/property/new-property-form';
 import type { Locale } from '@/i18n/config';
 
 type Props = {

@@ -2,91 +2,52 @@
 
 import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
-import { PropertyType, PropertyTag } from '@/app/generated/prisma';
-
-export type CreatePropertyInput = {
-  ownerId: string;
-  type: PropertyType;
-  tags?: PropertyTag[];
-  address: string;
-  city: string;
-  country?: string;
-  bedrooms?: number | null;
-  bathrooms?: number | null;
-  area?: number | null;
-  floor?: number | null;
-  yearBuilt?: number | null;
-  purchasePrice: number;
-  monthlyRent?: number | null;
-  purchaseDate?: string | null;
-  description?: string | null;
-  features?: string[];
-  images?: string[];
-};
-
-export type UpdatePropertyInput = Partial<{
-  type: PropertyType;
-  tags: PropertyTag[];
-  address: string;
-  city: string;
-  country: string;
-  bedrooms: number | null;
-  bathrooms: number | null;
-  area: number | null;
-  floor: number | null;
-  yearBuilt: number | null;
-  purchasePrice: number;
-  monthlyRent: number | null;
-  purchaseDate: string | null;
-  description: string | null;
-  features: string[];
-  images: string[];
-}>;
+import {
+  createPropertyInputSchema,
+  type CreatePropertyInput,
+  type UpdatePropertyInput,
+  PROPERTY_TYPES,
+  PROPERTY_TAGS,
+} from '@/lib/property-schema';
 
 type ActionResult = { success: true; id: string } | { success: false; error: string };
 
-const VALID_PROPERTY_TYPES: PropertyType[] = Object.values(PropertyType);
-const VALID_PROPERTY_TAGS: PropertyTag[] = Object.values(PropertyTag);
-
-function validateCreateInput(input: CreatePropertyInput): string | null {
-  if (!input.ownerId?.trim()) return 'Owner is required';
-  if (!input.address?.trim()) return 'Address is required';
-  if (!input.city?.trim()) return 'City is required';
-  if (!VALID_PROPERTY_TYPES.includes(input.type)) return 'Invalid property type';
-  if (typeof input.purchasePrice !== 'number' || input.purchasePrice < 0)
-    return 'Valid purchase price is required';
-  if (
-    input.tags?.length &&
-    input.tags.some((tag) => !VALID_PROPERTY_TAGS.includes(tag))
-  )
-    return 'Invalid tag';
-  return null;
-}
+export type { CreatePropertyInput, UpdatePropertyInput };
 
 export async function createProperty(input: CreatePropertyInput): Promise<ActionResult> {
-  const err = validateCreateInput(input);
-  if (err) return { success: false, error: err };
+  const parsed = createPropertyInputSchema.safeParse(input);
+  if (!parsed.success) {
+    const first = parsed.error.flatten().fieldErrors;
+    const message =
+      (first.purchasePrice?.[0]) ??
+      (first.address?.[0]) ??
+      (first.city?.[0]) ??
+      (first.ownerId?.[0]) ??
+      parsed.error.message;
+    return { success: false, error: String(message) };
+  }
+  const data = parsed.data;
 
   try {
     const property = await prisma.property.create({
       data: {
-        ownerId: input.ownerId.trim(),
-        type: input.type,
-        tags: input.tags ?? [],
-        address: input.address.trim(),
-        city: input.city.trim(),
-        country: input.country?.trim() ?? 'IL',
-        bedrooms: input.bedrooms ?? undefined,
-        bathrooms: input.bathrooms ?? undefined,
-        area: input.area ?? undefined,
-        floor: input.floor ?? undefined,
-        yearBuilt: input.yearBuilt ?? undefined,
-        purchasePrice: input.purchasePrice,
-        monthlyRent: input.monthlyRent ?? undefined,
-        purchaseDate: input.purchaseDate ? new Date(input.purchaseDate) : undefined,
-        description: input.description?.trim() || undefined,
-        features: input.features ?? [],
-        images: input.images ?? [],
+        ownerId: data.ownerId,
+        type: data.type,
+        tags: data.tags ?? [],
+        address: data.address,
+        city: data.city,
+        country: data.country?.trim() ?? 'IL',
+        bedrooms: data.bedrooms ?? undefined,
+        bathrooms: data.bathrooms ?? undefined,
+        area: data.area ?? undefined,
+        floor: data.floor ?? undefined,
+        yearBuilt: data.yearBuilt ?? undefined,
+        purchasePrice: data.purchasePrice,
+        monthlyRent: data.monthlyRent ?? undefined,
+        purchaseDate: data.purchaseDate ? new Date(data.purchaseDate) : undefined,
+        description: data.description?.trim() || undefined,
+        features: data.features ?? [],
+        images: data.images ?? [],
       },
     });
     revalidatePath('/');
@@ -103,9 +64,9 @@ export async function updateProperty(
 ): Promise<ActionResult> {
   if (!id?.trim()) return { success: false, error: 'Property id is required' };
 
-  if (data.type !== undefined && !VALID_PROPERTY_TYPES.includes(data.type))
+  if (data.type !== undefined && !PROPERTY_TYPES.includes(data.type))
     return { success: false, error: 'Invalid property type' };
-  if (data.tags !== undefined && data.tags.some((t) => !VALID_PROPERTY_TAGS.includes(t)))
+  if (data.tags !== undefined && data.tags.some((t) => !PROPERTY_TAGS.includes(t)))
     return { success: false, error: 'Invalid tag' };
 
   try {
