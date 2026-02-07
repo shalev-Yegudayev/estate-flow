@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { PropertyCard } from '@/components/property-card';
+import { PropertyCard } from '@/components/property/property-card';
 import { EmptyState } from '@/components/empty-state';
 import type { PropertyCardData } from '@/types/property';
 import type { AppPathname } from '@/i18n/routing';

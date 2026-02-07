@@ -81,11 +81,11 @@ export function mapDbPropertyToCard(row: PropertyListRow): PropertyCardData {
 
 /**
  * Fetches properties for list/card display.
- * When auth is implemented, pass the current user's id as ownerId.
+ * Pass the current user's id (from session) as ownerId to show only their properties.
  */
-export async function getProperties(ownerId?: string): Promise<PropertyCardData[]> {
+export async function getProperties(ownerId: string): Promise<PropertyCardData[]> {
   const rows = await prisma.property.findMany({
-    where: ownerId ? { ownerId } : undefined,
+    where: { ownerId },
     select: PROPERTY_LIST_SELECT,
   });
   return rows.map(mapDbPropertyToCard);
@@ -101,11 +101,4 @@ export async function getPropertyById(id: string) {
   });
 }
 
-/**
- * Returns the first user's id for use as default owner when auth is not yet implemented.
- * When auth is added, remove this and use the session user id instead.
- */
-export async function getDefaultOwnerId(): Promise<string | null> {
-  const user = await prisma.user.findFirst({ select: { id: true } });
-  return user?.id ?? null;
-}
+// Owner id comes from session (getCurrentUserId() from @/lib/auth/session).

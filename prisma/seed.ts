@@ -1,37 +1,82 @@
 import "dotenv/config";
-import {
-  PrismaClient,
-  PropertyType,
-  PropertyTag,
-} from "../app/generated/prisma";
-import { PrismaPg } from "@prisma/adapter-pg";
+import { createClient } from "@supabase/supabase-js";
+import { prisma } from "@/lib/clients/prisma";
+import { PropertyType, PropertyTag } from "@/lib/generated/prisma";
 
-const connectionString = process.env.DATABASE_URL;
-if (!connectionString) {
-  throw new Error("DATABASE_URL environment variable is not set");
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl || !supabaseServiceRoleKey) {
+  throw new Error(
+    "NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set in .env to run the seed (service role creates auth users)."
+  );
 }
-const prisma = new PrismaClient({
-  adapter: new PrismaPg({ connectionString }),
+
+const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey, {
+  auth: { autoRefreshToken: false, persistSession: false },
 });
+
+const SEED_EMAIL = "shalev12385@gmail.com";
+const SEED_PASSWORD = "SeedPasswordChangeMe123!";
 
 async function main() {
   console.log("🌱 Starting database seed...");
 
-  // Create a sample user (property owner)
-  const user = await prisma.user.upsert({
-    where: { email: "shalev12385@gmail.com" },
-    update: {},
-    create: {
-      email: "shalev12385@gmail.com",
-      firstName: "Shalev",
-      lastName: "Yegudayev",
-      phone: "+972-50-657-2220",
-    },
-  });
-  console.log(`✓ Created user: ${user.email}`);
+  const { data: existingUser, error: lookupError } = await supabaseAdmin.auth.admin.listUsers();
+  const existing = existingUser?.users?.find((u) => u.email === SEED_EMAIL);
 
-  // Create 10 diverse properties
-  const properties = [
+  let userId: string;
+
+  if (existing) {
+    userId = existing.id;
+    console.log(`✓ Using existing auth user: ${SEED_EMAIL}`);
+  } else {
+    const { data: newUser, error: createError } = await supabaseAdmin.auth.admin.createUser({
+      email: SEED_EMAIL,
+      password: SEED_PASSWORD,
+      email_confirm: true,
+      user_metadata: {
+        first_name: "Shalev",
+        last_name: "Yegudayev",
+        phone: "+972-50-657-2220",
+      },
+    });
+    if (createError) {
+      throw new Error(`Failed to create auth user: ${createError.message}`);
+    }
+    if (!newUser.user?.id) {
+      throw new Error("Auth user created but no id returned");
+    }
+    userId = newUser.user.id;
+    console.log(`✓ Created auth user: ${SEED_EMAIL} (profile created by trigger)`);
+  }
+
+  const profile = await prisma.profile.findUnique({ where: { id: userId } });
+  if (!profile) {
+    throw new Error(
+      "Profile not found for user. Ensure the DB trigger creates profiles on auth.users insert, or run the migration first."
+    );
+  }
+
+  const properties: Array<{
+    type: PropertyType;
+    tags: PropertyTag[];
+    address: string;
+    city: string;
+    country: string;
+    bedrooms: number | null;
+    bathrooms: number | null;
+    area: number;
+    floor: number | null;
+    yearBuilt: number | null;
+    purchaseDate: Date;
+    purchasePrice: number;
+    monthlyRent: number | null;
+    description: string;
+    features: string[];
+    images: string[];
+    ownerId: string;
+  }> = [
     {
       type: PropertyType.APARTMENT,
       tags: [PropertyTag.RENTED],
@@ -54,7 +99,7 @@ async function main() {
         "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
         "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?w=800",
       ],
-      ownerId: user.id,
+      ownerId: userId,
     },
     {
       type: PropertyType.HOUSE,
@@ -77,7 +122,7 @@ async function main() {
         "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800",
         "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800",
       ],
-      ownerId: user.id,
+      ownerId: userId,
     },
     {
       type: PropertyType.COMMERCIAL,
@@ -97,7 +142,7 @@ async function main() {
         "Prime retail space in busy commercial area. High foot traffic and excellent visibility.",
       features: ["wheelchair-accessible", "display-windows", "back-storage", "parking"],
       images: ["https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800"],
-      ownerId: user.id,
+      ownerId: userId,
     },
     {
       type: PropertyType.APARTMENT,
@@ -120,7 +165,7 @@ async function main() {
         "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800",
         "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
       ],
-      ownerId: user.id,
+      ownerId: userId,
     },
     {
       type: PropertyType.PARKING,
@@ -140,7 +185,7 @@ async function main() {
         "Covered parking spot in central Tel Aviv shopping center. Secure and convenient.",
       features: ["covered", "24/7-access", "security"],
       images: ["https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=800"],
-      ownerId: user.id,
+      ownerId: userId,
     },
     {
       type: PropertyType.LAND,
@@ -163,7 +208,7 @@ async function main() {
         "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800",
         "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
       ],
-      ownerId: user.id,
+      ownerId: userId,
     },
     {
       type: PropertyType.APARTMENT,
@@ -187,7 +232,7 @@ async function main() {
         "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
         "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800",
       ],
-      ownerId: user.id,
+      ownerId: userId,
     },
     {
       type: PropertyType.STORAGE,
@@ -207,7 +252,7 @@ async function main() {
         "Climate-controlled storage unit suitable for inventory or equipment. Loading dock access.",
       features: ["climate-control", "loading-dock", "security-cameras", "24/7-access"],
       images: ["https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800"],
-      ownerId: user.id,
+      ownerId: userId,
     },
     {
       type: PropertyType.APARTMENT,
@@ -227,7 +272,7 @@ async function main() {
         "Studio apartment in need of renovation. Great investment opportunity in prime location near the beach.",
       features: ["balcony"],
       images: ["https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800"],
-      ownerId: user.id,
+      ownerId: userId,
     },
     {
       type: PropertyType.COMMERCIAL,
@@ -259,7 +304,7 @@ async function main() {
         "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800",
         "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=800",
       ],
-      ownerId: user.id,
+      ownerId: userId,
     },
   ];
 
@@ -273,7 +318,8 @@ async function main() {
   }
 
   console.log("\n🎉 Seed completed successfully!");
-  console.log(`Created ${properties.length} properties for user ${user.email}`);
+  console.log(`Created ${properties.length} properties for ${SEED_EMAIL}`);
+  console.log("Sign in with the seed email and change the password after first login.");
 }
 
 main()

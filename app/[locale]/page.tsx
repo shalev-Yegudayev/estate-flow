@@ -1,8 +1,10 @@
 import { getTranslations } from 'next-intl/server';
 import { setRequestLocale } from 'next-intl/server';
+import { redirect } from 'next/navigation';
 import { HomePropertyList } from '@/components/home-property-list';
 import { FloatingActionButton } from '@/components/floating-action-button';
 import { getProperties } from '@/lib/db/property';
+import { getCurrentUserId } from '@/lib/auth/session';
 import type { Locale } from '@/i18n/config';
 
 type Props = {
@@ -13,8 +15,13 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const userId = await getCurrentUserId();
+  if (!userId) {
+    redirect(`/${locale}/auth`);
+  }
+
   const t = await getTranslations('home');
-  const properties = await getProperties();
+  const properties = await getProperties(userId);
 
   const propertyCount = properties.length === 1 ?
     t('propertyCount', { count: properties.length }) :

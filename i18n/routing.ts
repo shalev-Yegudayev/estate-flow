@@ -8,6 +8,7 @@ export const routing = defineRouting({
   localePrefix: 'as-needed',
   pathnames: {
     '/': '/',
+    '/auth': '/auth',
     '/properties': '/properties',
     '/properties/new': '/properties/new',
     '/dashboard': '/dashboard',

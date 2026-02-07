@@ -14,19 +14,15 @@ datasource db {
 }
 
 // ============================================
-// USER
+// PROFILE (extends auth.users; id = auth.users.id)
 // ============================================
 
-model User {
-  id        String  @id @default(uuid())
-  email     String  @unique
-  firstName String  @map("first_name")
-  lastName  String  @map("last_name")
+model Profile {
+  id        String   @id // UUID from auth.users, no default
+  firstName String   @map("first_name")
+  lastName  String   @map("last_name")
   phone     String?
-
-  // Supabase auth integration
-  authId String? @unique @map("auth_id")
-
+  avatarUrl String?  @map("avatar_url")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
@@ -35,7 +31,7 @@ model User {
   financialTransactions FinancialTransaction[]
   documents             Document[]
 
-  @@map("users")
+  @@map("profiles")
 }
 
 // ============================================
@@ -90,8 +86,8 @@ model Property {
   images      String[] // Array of image URLs
 
   // Owner
-  ownerId String @map("owner_id")
-  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId String  @map("owner_id")
+  owner   Profile @relation(fields: [ownerId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -132,8 +128,8 @@ model Tenant {
   notes String? @db.Text
 
   // Owner
-  ownerId String @map("owner_id")
-  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId String  @map("owner_id")
+  owner   Profile @relation(fields: [ownerId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -186,9 +182,9 @@ model FinancialTransaction {
   propertyId String?   @map("property_id")
   property   Property? @relation(fields: [propertyId], references: [id], onDelete: SetNull)
 
-  // Owner
-  userId String @map("user_id")
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // Owner (profile id = auth.users.id)
+  userId  String  @map("user_id")
+  profile Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -232,8 +228,8 @@ model Document {
   propertyId String?   @map("property_id")
   property   Property? @relation(fields: [propertyId], references: [id], onDelete: Cascade)
 
-  userId String @map("user_id")
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId  String  @map("user_id")
+  profile Profile @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   uploadedAt DateTime @default(now()) @map("uploaded_at")
   updatedAt  DateTime @updatedAt @map("updated_at")

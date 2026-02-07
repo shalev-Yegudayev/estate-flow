@@ -14,10 +14,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model User
+ * Model Profile
  * 
  */
-export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+export type Profile = $Result.DefaultSelection<Prisma.$ProfilePayload>
 /**
  * Model Property
  * 
@@ -136,8 +136,8 @@ export const DocumentType: typeof $Enums.DocumentType
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more Profiles
+ * const profiles = await prisma.profile.findMany()
  * ```
  *
  *
@@ -157,8 +157,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
+   * // Fetch zero or more Profiles
+   * const profiles = await prisma.profile.findMany()
    * ```
    *
    *
@@ -247,14 +247,14 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.user`: Exposes CRUD operations for the **User** model.
+   * `prisma.profile`: Exposes CRUD operations for the **Profile** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Users
-    * const users = await prisma.user.findMany()
+    * // Fetch zero or more Profiles
+    * const profiles = await prisma.profile.findMany()
     * ```
     */
-  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+  get profile(): Prisma.ProfileDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.property`: Exposes CRUD operations for the **Property** model.
@@ -729,7 +729,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    User: 'User',
+    Profile: 'Profile',
     Property: 'Property',
     Tenant: 'Tenant',
     FinancialTransaction: 'FinancialTransaction',
@@ -749,81 +749,81 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "property" | "tenant" | "financialTransaction" | "document"
+      modelProps: "profile" | "property" | "tenant" | "financialTransaction" | "document"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      User: {
-        payload: Prisma.$UserPayload<ExtArgs>
-        fields: Prisma.UserFieldRefs
+      Profile: {
+        payload: Prisma.$ProfilePayload<ExtArgs>
+        fields: Prisma.ProfileFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.UserFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+            args: Prisma.ProfileFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.ProfileFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
           }
           findFirst: {
-            args: Prisma.UserFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+            args: Prisma.ProfileFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.ProfileFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
           }
           findMany: {
-            args: Prisma.UserFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.ProfileFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>[]
           }
           create: {
-            args: Prisma.UserCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.ProfileCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
           }
           createMany: {
-            args: Prisma.UserCreateManyArgs<ExtArgs>
+            args: Prisma.ProfileCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.ProfileCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>[]
           }
           delete: {
-            args: Prisma.UserDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.ProfileDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
           }
           update: {
-            args: Prisma.UserUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.ProfileUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
           }
           deleteMany: {
-            args: Prisma.UserDeleteManyArgs<ExtArgs>
+            args: Prisma.ProfileDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.UserUpdateManyArgs<ExtArgs>
+            args: Prisma.ProfileUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.ProfileUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>[]
           }
           upsert: {
-            args: Prisma.UserUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.ProfileUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfilePayload>
           }
           aggregate: {
-            args: Prisma.UserAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateUser>
+            args: Prisma.ProfileAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfile>
           }
           groupBy: {
-            args: Prisma.UserGroupByArgs<ExtArgs>
-            result: $Utils.Optional<UserGroupByOutputType>[]
+            args: Prisma.ProfileGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfileGroupByOutputType>[]
           }
           count: {
-            args: Prisma.UserCountArgs<ExtArgs>
-            result: $Utils.Optional<UserCountAggregateOutputType> | number
+            args: Prisma.ProfileCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfileCountAggregateOutputType> | number
           }
         }
       }
@@ -1231,7 +1231,7 @@ export namespace Prisma {
     comments?: runtime.SqlCommenterPlugin[]
   }
   export type GlobalOmitConfig = {
-    user?: UserOmit
+    profile?: ProfileOmit
     property?: PropertyOmit
     tenant?: TenantOmit
     financialTransaction?: FinancialTransactionOmit
@@ -1312,59 +1312,59 @@ export namespace Prisma {
 
 
   /**
-   * Count Type UserCountOutputType
+   * Count Type ProfileCountOutputType
    */
 
-  export type UserCountOutputType = {
+  export type ProfileCountOutputType = {
     properties: number
     tenants: number
     financialTransactions: number
     documents: number
   }
 
-  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    properties?: boolean | UserCountOutputTypeCountPropertiesArgs
-    tenants?: boolean | UserCountOutputTypeCountTenantsArgs
-    financialTransactions?: boolean | UserCountOutputTypeCountFinancialTransactionsArgs
-    documents?: boolean | UserCountOutputTypeCountDocumentsArgs
+  export type ProfileCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    properties?: boolean | ProfileCountOutputTypeCountPropertiesArgs
+    tenants?: boolean | ProfileCountOutputTypeCountTenantsArgs
+    financialTransactions?: boolean | ProfileCountOutputTypeCountFinancialTransactionsArgs
+    documents?: boolean | ProfileCountOutputTypeCountDocumentsArgs
   }
 
   // Custom InputTypes
   /**
-   * UserCountOutputType without action
+   * ProfileCountOutputType without action
    */
-  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the UserCountOutputType
+     * Select specific fields to fetch from the ProfileCountOutputType
      */
-    select?: UserCountOutputTypeSelect<ExtArgs> | null
+    select?: ProfileCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * UserCountOutputType without action
+   * ProfileCountOutputType without action
    */
-  export type UserCountOutputTypeCountPropertiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileCountOutputTypeCountPropertiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PropertyWhereInput
   }
 
   /**
-   * UserCountOutputType without action
+   * ProfileCountOutputType without action
    */
-  export type UserCountOutputTypeCountTenantsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileCountOutputTypeCountTenantsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TenantWhereInput
   }
 
   /**
-   * UserCountOutputType without action
+   * ProfileCountOutputType without action
    */
-  export type UserCountOutputTypeCountFinancialTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileCountOutputTypeCountFinancialTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FinancialTransactionWhereInput
   }
 
   /**
-   * UserCountOutputType without action
+   * ProfileCountOutputType without action
    */
-  export type UserCountOutputTypeCountDocumentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileCountOutputTypeCountDocumentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DocumentWhereInput
   }
 
@@ -1423,246 +1423,235 @@ export namespace Prisma {
    */
 
   /**
-   * Model User
+   * Model Profile
    */
 
-  export type AggregateUser = {
-    _count: UserCountAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+  export type AggregateProfile = {
+    _count: ProfileCountAggregateOutputType | null
+    _min: ProfileMinAggregateOutputType | null
+    _max: ProfileMaxAggregateOutputType | null
   }
 
-  export type UserMinAggregateOutputType = {
+  export type ProfileMinAggregateOutputType = {
     id: string | null
-    email: string | null
     firstName: string | null
     lastName: string | null
     phone: string | null
-    authId: string | null
+    avatarUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type UserMaxAggregateOutputType = {
+  export type ProfileMaxAggregateOutputType = {
     id: string | null
-    email: string | null
     firstName: string | null
     lastName: string | null
     phone: string | null
-    authId: string | null
+    avatarUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type UserCountAggregateOutputType = {
+  export type ProfileCountAggregateOutputType = {
     id: number
-    email: number
     firstName: number
     lastName: number
     phone: number
-    authId: number
+    avatarUrl: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type UserMinAggregateInputType = {
+  export type ProfileMinAggregateInputType = {
     id?: true
-    email?: true
     firstName?: true
     lastName?: true
     phone?: true
-    authId?: true
+    avatarUrl?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type UserMaxAggregateInputType = {
+  export type ProfileMaxAggregateInputType = {
     id?: true
-    email?: true
     firstName?: true
     lastName?: true
     phone?: true
-    authId?: true
+    avatarUrl?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type UserCountAggregateInputType = {
+  export type ProfileCountAggregateInputType = {
     id?: true
-    email?: true
     firstName?: true
     lastName?: true
     phone?: true
-    authId?: true
+    avatarUrl?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which User to aggregate.
+     * Filter which Profile to aggregate.
      */
-    where?: UserWhereInput
+    where?: ProfileWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of Profiles to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: ProfileWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` Profiles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` Profiles.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Users
+     * Count returned Profiles
     **/
-    _count?: true | UserCountAggregateInputType
+    _count?: true | ProfileCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: UserMinAggregateInputType
+    _min?: ProfileMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: UserMaxAggregateInputType
+    _max?: ProfileMaxAggregateInputType
   }
 
-  export type GetUserAggregateType<T extends UserAggregateArgs> = {
-        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+  export type GetProfileAggregateType<T extends ProfileAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfile]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateUser[P]>
-      : GetScalarType<T[P], AggregateUser[P]>
+        : GetScalarType<T[P], AggregateProfile[P]>
+      : GetScalarType<T[P], AggregateProfile[P]>
   }
 
 
 
 
-  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
-    by: UserScalarFieldEnum[] | UserScalarFieldEnum
-    having?: UserScalarWhereWithAggregatesInput
+  export type ProfileGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfileWhereInput
+    orderBy?: ProfileOrderByWithAggregationInput | ProfileOrderByWithAggregationInput[]
+    by: ProfileScalarFieldEnum[] | ProfileScalarFieldEnum
+    having?: ProfileScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: UserCountAggregateInputType | true
-    _min?: UserMinAggregateInputType
-    _max?: UserMaxAggregateInputType
+    _count?: ProfileCountAggregateInputType | true
+    _min?: ProfileMinAggregateInputType
+    _max?: ProfileMaxAggregateInputType
   }
 
-  export type UserGroupByOutputType = {
+  export type ProfileGroupByOutputType = {
     id: string
-    email: string
     firstName: string
     lastName: string
     phone: string | null
-    authId: string | null
+    avatarUrl: string | null
     createdAt: Date
     updatedAt: Date
-    _count: UserCountAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+    _count: ProfileCountAggregateOutputType | null
+    _min: ProfileMinAggregateOutputType | null
+    _max: ProfileMaxAggregateOutputType | null
   }
 
-  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+  type GetProfileGroupByPayload<T extends ProfileGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<UserGroupByOutputType, T['by']> &
+      PickEnumerable<ProfileGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ProfileGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], UserGroupByOutputType[P]>
-            : GetScalarType<T[P], UserGroupByOutputType[P]>
+              : GetScalarType<T[P], ProfileGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfileGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ProfileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
     firstName?: boolean
     lastName?: boolean
     phone?: boolean
-    authId?: boolean
+    avatarUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    properties?: boolean | User$propertiesArgs<ExtArgs>
-    tenants?: boolean | User$tenantsArgs<ExtArgs>
-    financialTransactions?: boolean | User$financialTransactionsArgs<ExtArgs>
-    documents?: boolean | User$documentsArgs<ExtArgs>
-    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["user"]>
+    properties?: boolean | Profile$propertiesArgs<ExtArgs>
+    tenants?: boolean | Profile$tenantsArgs<ExtArgs>
+    financialTransactions?: boolean | Profile$financialTransactionsArgs<ExtArgs>
+    documents?: boolean | Profile$documentsArgs<ExtArgs>
+    _count?: boolean | ProfileCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profile"]>
 
-  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ProfileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
     firstName?: boolean
     lastName?: boolean
     phone?: boolean
-    authId?: boolean
+    avatarUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["user"]>
+  }, ExtArgs["result"]["profile"]>
 
-  export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ProfileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
     firstName?: boolean
     lastName?: boolean
     phone?: boolean
-    authId?: boolean
+    avatarUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["user"]>
+  }, ExtArgs["result"]["profile"]>
 
-  export type UserSelectScalar = {
+  export type ProfileSelectScalar = {
     id?: boolean
-    email?: boolean
     firstName?: boolean
     lastName?: boolean
     phone?: boolean
-    authId?: boolean
+    avatarUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "firstName" | "lastName" | "phone" | "authId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
-  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    properties?: boolean | User$propertiesArgs<ExtArgs>
-    tenants?: boolean | User$tenantsArgs<ExtArgs>
-    financialTransactions?: boolean | User$financialTransactionsArgs<ExtArgs>
-    documents?: boolean | User$documentsArgs<ExtArgs>
-    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  export type ProfileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "phone" | "avatarUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["profile"]>
+  export type ProfileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    properties?: boolean | Profile$propertiesArgs<ExtArgs>
+    tenants?: boolean | Profile$tenantsArgs<ExtArgs>
+    financialTransactions?: boolean | Profile$financialTransactionsArgs<ExtArgs>
+    documents?: boolean | Profile$documentsArgs<ExtArgs>
+    _count?: boolean | ProfileCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProfileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProfileIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "User"
+  export type $ProfilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Profile"
     objects: {
       properties: Prisma.$PropertyPayload<ExtArgs>[]
       tenants: Prisma.$TenantPayload<ExtArgs>[]
@@ -1671,143 +1660,142 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      email: string
       firstName: string
       lastName: string
       phone: string | null
-      authId: string | null
+      avatarUrl: string | null
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["user"]>
+    }, ExtArgs["result"]["profile"]>
     composites: {}
   }
 
-  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
+  type ProfileGetPayload<S extends boolean | null | undefined | ProfileDefaultArgs> = $Result.GetResult<Prisma.$ProfilePayload, S>
 
-  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: UserCountAggregateInputType | true
+  type ProfileCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfileCountAggregateInputType | true
     }
 
-  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
+  export interface ProfileDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Profile'], meta: { name: 'Profile' } }
     /**
-     * Find zero or one User that matches the filter.
-     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * Find zero or one Profile that matches the filter.
+     * @param {ProfileFindUniqueArgs} args - Arguments to find a Profile
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUnique({
+     * // Get one Profile
+     * const profile = await prisma.profile.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends ProfileFindUniqueArgs>(args: SelectSubset<T, ProfileFindUniqueArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one User that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Profile that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @param {ProfileFindUniqueOrThrowArgs} args - Arguments to find a Profile
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUniqueOrThrow({
+     * // Get one Profile
+     * const profile = await prisma.profile.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends ProfileFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first User that matches the filter.
+     * Find the first Profile that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @param {ProfileFindFirstArgs} args - Arguments to find a Profile
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirst({
+     * // Get one Profile
+     * const profile = await prisma.profile.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends ProfileFindFirstArgs>(args?: SelectSubset<T, ProfileFindFirstArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first User that matches the filter or
+     * Find the first Profile that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @param {ProfileFindFirstOrThrowArgs} args - Arguments to find a Profile
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirstOrThrow({
+     * // Get one Profile
+     * const profile = await prisma.profile.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends ProfileFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Users that matches the filter.
+     * Find zero or more Profiles that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ProfileFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Users
-     * const users = await prisma.user.findMany()
+     * // Get all Profiles
+     * const profiles = await prisma.profile.findMany()
      * 
-     * // Get first 10 Users
-     * const users = await prisma.user.findMany({ take: 10 })
+     * // Get first 10 Profiles
+     * const profiles = await prisma.profile.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+     * const profileWithIdOnly = await prisma.profile.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends ProfileFindManyArgs>(args?: SelectSubset<T, ProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a User.
-     * @param {UserCreateArgs} args - Arguments to create a User.
+     * Create a Profile.
+     * @param {ProfileCreateArgs} args - Arguments to create a Profile.
      * @example
-     * // Create one User
-     * const User = await prisma.user.create({
+     * // Create one Profile
+     * const Profile = await prisma.profile.create({
      *   data: {
-     *     // ... data to create a User
+     *     // ... data to create a Profile
      *   }
      * })
      * 
      */
-    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends ProfileCreateArgs>(args: SelectSubset<T, ProfileCreateArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Users.
-     * @param {UserCreateManyArgs} args - Arguments to create many Users.
+     * Create many Profiles.
+     * @param {ProfileCreateManyArgs} args - Arguments to create many Profiles.
      * @example
-     * // Create many Users
-     * const user = await prisma.user.createMany({
+     * // Create many Profiles
+     * const profile = await prisma.profile.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends ProfileCreateManyArgs>(args?: SelectSubset<T, ProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Users and returns the data saved in the database.
-     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
+     * Create many Profiles and returns the data saved in the database.
+     * @param {ProfileCreateManyAndReturnArgs} args - Arguments to create many Profiles.
      * @example
-     * // Create many Users
-     * const user = await prisma.user.createManyAndReturn({
+     * // Create many Profiles
+     * const profile = await prisma.profile.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.createManyAndReturn({
+     * // Create many Profiles and only return the `id`
+     * const profileWithIdOnly = await prisma.profile.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1817,28 +1805,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends ProfileCreateManyAndReturnArgs>(args?: SelectSubset<T, ProfileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a User.
-     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * Delete a Profile.
+     * @param {ProfileDeleteArgs} args - Arguments to delete one Profile.
      * @example
-     * // Delete one User
-     * const User = await prisma.user.delete({
+     * // Delete one Profile
+     * const Profile = await prisma.profile.delete({
      *   where: {
-     *     // ... filter to delete one User
+     *     // ... filter to delete one Profile
      *   }
      * })
      * 
      */
-    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends ProfileDeleteArgs>(args: SelectSubset<T, ProfileDeleteArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one User.
-     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * Update one Profile.
+     * @param {ProfileUpdateArgs} args - Arguments to update one Profile.
      * @example
-     * // Update one User
-     * const user = await prisma.user.update({
+     * // Update one Profile
+     * const profile = await prisma.profile.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1848,30 +1836,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends ProfileUpdateArgs>(args: SelectSubset<T, ProfileUpdateArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Users.
-     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * Delete zero or more Profiles.
+     * @param {ProfileDeleteManyArgs} args - Arguments to filter Profiles to delete.
      * @example
-     * // Delete a few Users
-     * const { count } = await prisma.user.deleteMany({
+     * // Delete a few Profiles
+     * const { count } = await prisma.profile.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends ProfileDeleteManyArgs>(args?: SelectSubset<T, ProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Users.
+     * Update zero or more Profiles.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ProfileUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Users
-     * const user = await prisma.user.updateMany({
+     * // Update many Profiles
+     * const profile = await prisma.profile.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1881,14 +1869,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends ProfileUpdateManyArgs>(args: SelectSubset<T, ProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Users and returns the data updated in the database.
-     * @param {UserUpdateManyAndReturnArgs} args - Arguments to update many Users.
+     * Update zero or more Profiles and returns the data updated in the database.
+     * @param {ProfileUpdateManyAndReturnArgs} args - Arguments to update many Profiles.
      * @example
-     * // Update many Users
-     * const user = await prisma.user.updateManyAndReturn({
+     * // Update many Profiles
+     * const profile = await prisma.profile.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1897,8 +1885,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.updateManyAndReturn({
+     * // Update zero or more Profiles and only return the `id`
+     * const profileWithIdOnly = await prisma.profile.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -1911,56 +1899,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends UserUpdateManyAndReturnArgs>(args: SelectSubset<T, UserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends ProfileUpdateManyAndReturnArgs>(args: SelectSubset<T, ProfileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one User.
-     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * Create or update one Profile.
+     * @param {ProfileUpsertArgs} args - Arguments to update or create a Profile.
      * @example
-     * // Update or create a User
-     * const user = await prisma.user.upsert({
+     * // Update or create a Profile
+     * const profile = await prisma.profile.upsert({
      *   create: {
-     *     // ... data to create a User
+     *     // ... data to create a Profile
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the User we want to update
+     *     // ... the filter for the Profile we want to update
      *   }
      * })
      */
-    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends ProfileUpsertArgs>(args: SelectSubset<T, ProfileUpsertArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Users.
+     * Count the number of Profiles.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @param {ProfileCountArgs} args - Arguments to filter Profiles to count.
      * @example
-     * // Count the number of Users
-     * const count = await prisma.user.count({
+     * // Count the number of Profiles
+     * const count = await prisma.profile.count({
      *   where: {
-     *     // ... the filter for the Users we want to count
+     *     // ... the filter for the Profiles we want to count
      *   }
      * })
     **/
-    count<T extends UserCountArgs>(
-      args?: Subset<T, UserCountArgs>,
+    count<T extends ProfileCountArgs>(
+      args?: Subset<T, ProfileCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], UserCountAggregateOutputType>
+          : GetScalarType<T['select'], ProfileCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a User.
+     * Allows you to perform aggregations operations on a Profile.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ProfileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1980,13 +1968,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+    aggregate<T extends ProfileAggregateArgs>(args: Subset<T, ProfileAggregateArgs>): Prisma.PrismaPromise<GetProfileAggregateType<T>>
 
     /**
-     * Group by User.
+     * Group by Profile.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserGroupByArgs} args - Group by arguments.
+     * @param {ProfileGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2001,14 +1989,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends UserGroupByArgs,
+      T extends ProfileGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: UserGroupByArgs['orderBy'] }
-        : { orderBy?: UserGroupByArgs['orderBy'] },
+        ? { orderBy: ProfileGroupByArgs['orderBy'] }
+        : { orderBy?: ProfileGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2057,25 +2045,25 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the User model
+   * Fields of the Profile model
    */
-  readonly fields: UserFieldRefs;
+  readonly fields: ProfileFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for User.
+   * The delegate class that acts as a "Promise-like" for Profile.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ProfileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    properties<T extends User$propertiesArgs<ExtArgs> = {}>(args?: Subset<T, User$propertiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PropertyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    tenants<T extends User$tenantsArgs<ExtArgs> = {}>(args?: Subset<T, User$tenantsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    financialTransactions<T extends User$financialTransactionsArgs<ExtArgs> = {}>(args?: Subset<T, User$financialTransactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FinancialTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    documents<T extends User$documentsArgs<ExtArgs> = {}>(args?: Subset<T, User$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    properties<T extends Profile$propertiesArgs<ExtArgs> = {}>(args?: Subset<T, Profile$propertiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PropertyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tenants<T extends Profile$tenantsArgs<ExtArgs> = {}>(args?: Subset<T, Profile$tenantsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    financialTransactions<T extends Profile$financialTransactionsArgs<ExtArgs> = {}>(args?: Subset<T, Profile$financialTransactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FinancialTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    documents<T extends Profile$documentsArgs<ExtArgs> = {}>(args?: Subset<T, Profile$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2102,408 +2090,407 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the User model
+   * Fields of the Profile model
    */
-  interface UserFieldRefs {
-    readonly id: FieldRef<"User", 'String'>
-    readonly email: FieldRef<"User", 'String'>
-    readonly firstName: FieldRef<"User", 'String'>
-    readonly lastName: FieldRef<"User", 'String'>
-    readonly phone: FieldRef<"User", 'String'>
-    readonly authId: FieldRef<"User", 'String'>
-    readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly updatedAt: FieldRef<"User", 'DateTime'>
+  interface ProfileFieldRefs {
+    readonly id: FieldRef<"Profile", 'String'>
+    readonly firstName: FieldRef<"Profile", 'String'>
+    readonly lastName: FieldRef<"Profile", 'String'>
+    readonly phone: FieldRef<"Profile", 'String'>
+    readonly avatarUrl: FieldRef<"Profile", 'String'>
+    readonly createdAt: FieldRef<"Profile", 'DateTime'>
+    readonly updatedAt: FieldRef<"Profile", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * User findUnique
+   * Profile findUnique
    */
-  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which Profile to fetch.
      */
-    where: UserWhereUniqueInput
+    where: ProfileWhereUniqueInput
   }
 
   /**
-   * User findUniqueOrThrow
+   * Profile findUniqueOrThrow
    */
-  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which Profile to fetch.
      */
-    where: UserWhereUniqueInput
+    where: ProfileWhereUniqueInput
   }
 
   /**
-   * User findFirst
+   * Profile findFirst
    */
-  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which Profile to fetch.
      */
-    where?: UserWhereInput
+    where?: ProfileWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of Profiles to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for Profiles.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: ProfileWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` Profiles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` Profiles.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of Profiles.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
   }
 
   /**
-   * User findFirstOrThrow
+   * Profile findFirstOrThrow
    */
-  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which Profile to fetch.
      */
-    where?: UserWhereInput
+    where?: ProfileWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of Profiles to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for Profiles.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: ProfileWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` Profiles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` Profiles.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of Profiles.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
   }
 
   /**
-   * User findMany
+   * Profile findMany
    */
-  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
     /**
-     * Filter, which Users to fetch.
+     * Filter, which Profiles to fetch.
      */
-    where?: UserWhereInput
+    where?: ProfileWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of Profiles to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: ProfileOrderByWithRelationInput | ProfileOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Users.
+     * Sets the position for listing Profiles.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: ProfileWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` Profiles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` Profiles.
      */
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: ProfileScalarFieldEnum | ProfileScalarFieldEnum[]
   }
 
   /**
-   * User create
+   * Profile create
    */
-  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
     /**
-     * The data needed to create a User.
+     * The data needed to create a Profile.
      */
-    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+    data: XOR<ProfileCreateInput, ProfileUncheckedCreateInput>
   }
 
   /**
-   * User createMany
+   * Profile createMany
    */
-  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Users.
+     * The data used to create many Profiles.
      */
-    data: UserCreateManyInput | UserCreateManyInput[]
+    data: ProfileCreateManyInput | ProfileCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * User createManyAndReturn
+   * Profile createManyAndReturn
    */
-  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
+    select?: ProfileSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
-     * The data used to create many Users.
+     * The data used to create many Profiles.
      */
-    data: UserCreateManyInput | UserCreateManyInput[]
+    data: ProfileCreateManyInput | ProfileCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * User update
+   * Profile update
    */
-  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
     /**
-     * The data needed to update a User.
+     * The data needed to update a Profile.
      */
-    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    data: XOR<ProfileUpdateInput, ProfileUncheckedUpdateInput>
     /**
-     * Choose, which User to update.
+     * Choose, which Profile to update.
      */
-    where: UserWhereUniqueInput
+    where: ProfileWhereUniqueInput
   }
 
   /**
-   * User updateMany
+   * Profile updateMany
    */
-  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Users.
+     * The data used to update Profiles.
      */
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    data: XOR<ProfileUpdateManyMutationInput, ProfileUncheckedUpdateManyInput>
     /**
-     * Filter which Users to update
+     * Filter which Profiles to update
      */
-    where?: UserWhereInput
+    where?: ProfileWhereInput
     /**
-     * Limit how many Users to update.
+     * Limit how many Profiles to update.
      */
     limit?: number
   }
 
   /**
-   * User updateManyAndReturn
+   * Profile updateManyAndReturn
    */
-  export type UserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: ProfileSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
-     * The data used to update Users.
+     * The data used to update Profiles.
      */
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    data: XOR<ProfileUpdateManyMutationInput, ProfileUncheckedUpdateManyInput>
     /**
-     * Filter which Users to update
+     * Filter which Profiles to update
      */
-    where?: UserWhereInput
+    where?: ProfileWhereInput
     /**
-     * Limit how many Users to update.
+     * Limit how many Profiles to update.
      */
     limit?: number
   }
 
   /**
-   * User upsert
+   * Profile upsert
    */
-  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
     /**
-     * The filter to search for the User to update in case it exists.
+     * The filter to search for the Profile to update in case it exists.
      */
-    where: UserWhereUniqueInput
+    where: ProfileWhereUniqueInput
     /**
-     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     * In case the Profile found by the `where` argument doesn't exist, create a new Profile with this data.
      */
-    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    create: XOR<ProfileCreateInput, ProfileUncheckedCreateInput>
     /**
-     * In case the User was found with the provided `where` argument, update it with this data.
+     * In case the Profile was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    update: XOR<ProfileUpdateInput, ProfileUncheckedUpdateInput>
   }
 
   /**
-   * User delete
+   * Profile delete
    */
-  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
     /**
-     * Filter which User to delete.
+     * Filter which Profile to delete.
      */
-    where: UserWhereUniqueInput
+    where: ProfileWhereUniqueInput
   }
 
   /**
-   * User deleteMany
+   * Profile deleteMany
    */
-  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Users to delete
+     * Filter which Profiles to delete
      */
-    where?: UserWhereInput
+    where?: ProfileWhereInput
     /**
-     * Limit how many Users to delete.
+     * Limit how many Profiles to delete.
      */
     limit?: number
   }
 
   /**
-   * User.properties
+   * Profile.properties
    */
-  export type User$propertiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Profile$propertiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Property
      */
@@ -2525,9 +2512,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.tenants
+   * Profile.tenants
    */
-  export type User$tenantsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Profile$tenantsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Tenant
      */
@@ -2549,9 +2536,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.financialTransactions
+   * Profile.financialTransactions
    */
-  export type User$financialTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Profile$financialTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the FinancialTransaction
      */
@@ -2573,9 +2560,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.documents
+   * Profile.documents
    */
-  export type User$documentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Profile$documentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Document
      */
@@ -2597,21 +2584,21 @@ export namespace Prisma {
   }
 
   /**
-   * User without action
+   * Profile without action
    */
-  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProfileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Profile
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ProfileSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Profile
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: ProfileOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: ProfileInclude<ExtArgs> | null
   }
 
 
@@ -2945,7 +2932,7 @@ export namespace Prisma {
     ownerId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
     tenants?: boolean | Property$tenantsArgs<ExtArgs>
     financialTransactions?: boolean | Property$financialTransactionsArgs<ExtArgs>
     documents?: boolean | Property$documentsArgs<ExtArgs>
@@ -2973,7 +2960,7 @@ export namespace Prisma {
     ownerId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["property"]>
 
   export type PropertySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2997,7 +2984,7 @@ export namespace Prisma {
     ownerId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["property"]>
 
   export type PropertySelectScalar = {
@@ -3025,23 +3012,23 @@ export namespace Prisma {
 
   export type PropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "tags" | "address" | "city" | "country" | "bedrooms" | "bathrooms" | "area" | "floor" | "yearBuilt" | "purchaseDate" | "purchasePrice" | "monthlyRent" | "description" | "features" | "images" | "ownerId" | "createdAt" | "updatedAt", ExtArgs["result"]["property"]>
   export type PropertyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
     tenants?: boolean | Property$tenantsArgs<ExtArgs>
     financialTransactions?: boolean | Property$financialTransactionsArgs<ExtArgs>
     documents?: boolean | Property$documentsArgs<ExtArgs>
     _count?: boolean | PropertyCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PropertyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }
   export type PropertyIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }
 
   export type $PropertyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Property"
     objects: {
-      owner: Prisma.$UserPayload<ExtArgs>
+      owner: Prisma.$ProfilePayload<ExtArgs>
       tenants: Prisma.$TenantPayload<ExtArgs>[]
       financialTransactions: Prisma.$FinancialTransactionPayload<ExtArgs>[]
       documents: Prisma.$DocumentPayload<ExtArgs>[]
@@ -3461,7 +3448,7 @@ export namespace Prisma {
    */
   export interface Prisma__PropertyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    owner<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    owner<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     tenants<T extends Property$tenantsArgs<ExtArgs> = {}>(args?: Subset<T, Property$tenantsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     financialTransactions<T extends Property$financialTransactionsArgs<ExtArgs> = {}>(args?: Subset<T, Property$financialTransactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FinancialTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     documents<T extends Property$documentsArgs<ExtArgs> = {}>(args?: Subset<T, Property$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -4283,7 +4270,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     property?: boolean | PropertyDefaultArgs<ExtArgs>
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tenant"]>
 
   export type TenantSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4303,7 +4290,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     property?: boolean | PropertyDefaultArgs<ExtArgs>
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tenant"]>
 
   export type TenantSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4323,7 +4310,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     property?: boolean | PropertyDefaultArgs<ExtArgs>
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tenant"]>
 
   export type TenantSelectScalar = {
@@ -4347,22 +4334,22 @@ export namespace Prisma {
   export type TenantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "phone" | "idNumber" | "propertyId" | "moveInDate" | "moveOutDate" | "monthlyRent" | "securityDeposit" | "notes" | "ownerId" | "createdAt" | "updatedAt", ExtArgs["result"]["tenant"]>
   export type TenantInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | PropertyDefaultArgs<ExtArgs>
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }
   export type TenantIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | PropertyDefaultArgs<ExtArgs>
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }
   export type TenantIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | PropertyDefaultArgs<ExtArgs>
-    owner?: boolean | UserDefaultArgs<ExtArgs>
+    owner?: boolean | ProfileDefaultArgs<ExtArgs>
   }
 
   export type $TenantPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Tenant"
     objects: {
       property: Prisma.$PropertyPayload<ExtArgs>
-      owner: Prisma.$UserPayload<ExtArgs>
+      owner: Prisma.$ProfilePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4775,7 +4762,7 @@ export namespace Prisma {
   export interface Prisma__TenantClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     property<T extends PropertyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PropertyDefaultArgs<ExtArgs>>): Prisma__PropertyClient<$Result.GetResult<Prisma.$PropertyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    owner<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    owner<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5481,7 +5468,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     property?: boolean | FinancialTransaction$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["financialTransaction"]>
 
   export type FinancialTransactionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5497,7 +5484,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     property?: boolean | FinancialTransaction$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["financialTransaction"]>
 
   export type FinancialTransactionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5513,7 +5500,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     property?: boolean | FinancialTransaction$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["financialTransaction"]>
 
   export type FinancialTransactionSelectScalar = {
@@ -5533,22 +5520,22 @@ export namespace Prisma {
   export type FinancialTransactionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "category" | "amount" | "date" | "description" | "receiptUrl" | "propertyId" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["financialTransaction"]>
   export type FinancialTransactionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | FinancialTransaction$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
   export type FinancialTransactionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | FinancialTransaction$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
   export type FinancialTransactionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | FinancialTransaction$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
 
   export type $FinancialTransactionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "FinancialTransaction"
     objects: {
       property: Prisma.$PropertyPayload<ExtArgs> | null
-      user: Prisma.$UserPayload<ExtArgs>
+      profile: Prisma.$ProfilePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5957,7 +5944,7 @@ export namespace Prisma {
   export interface Prisma__FinancialTransactionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     property<T extends FinancialTransaction$propertyArgs<ExtArgs> = {}>(args?: Subset<T, FinancialTransaction$propertyArgs<ExtArgs>>): Prisma__PropertyClient<$Result.GetResult<Prisma.$PropertyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    profile<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6686,7 +6673,7 @@ export namespace Prisma {
     uploadedAt?: boolean
     updatedAt?: boolean
     property?: boolean | Document$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["document"]>
 
   export type DocumentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6703,7 +6690,7 @@ export namespace Prisma {
     uploadedAt?: boolean
     updatedAt?: boolean
     property?: boolean | Document$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["document"]>
 
   export type DocumentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6720,7 +6707,7 @@ export namespace Prisma {
     uploadedAt?: boolean
     updatedAt?: boolean
     property?: boolean | Document$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["document"]>
 
   export type DocumentSelectScalar = {
@@ -6741,22 +6728,22 @@ export namespace Prisma {
   export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "title" | "description" | "fileName" | "fileUrl" | "mimeType" | "fileSize" | "propertyId" | "userId" | "uploadedAt" | "updatedAt", ExtArgs["result"]["document"]>
   export type DocumentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | Document$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
   export type DocumentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | Document$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
   export type DocumentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     property?: boolean | Document$propertyArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    profile?: boolean | ProfileDefaultArgs<ExtArgs>
   }
 
   export type $DocumentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Document"
     objects: {
       property: Prisma.$PropertyPayload<ExtArgs> | null
-      user: Prisma.$UserPayload<ExtArgs>
+      profile: Prisma.$ProfilePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7166,7 +7153,7 @@ export namespace Prisma {
   export interface Prisma__DocumentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     property<T extends Document$propertyArgs<ExtArgs> = {}>(args?: Subset<T, Document$propertyArgs<ExtArgs>>): Prisma__PropertyClient<$Result.GetResult<Prisma.$PropertyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    profile<T extends ProfileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProfileDefaultArgs<ExtArgs>>): Prisma__ProfileClient<$Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7655,18 +7642,17 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const UserScalarFieldEnum: {
+  export const ProfileScalarFieldEnum: {
     id: 'id',
-    email: 'email',
     firstName: 'firstName',
     lastName: 'lastName',
     phone: 'phone',
-    authId: 'authId',
+    avatarUrl: 'avatarUrl',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+  export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
 
 
   export const PropertyScalarFieldEnum: {
@@ -7923,31 +7909,29 @@ export namespace Prisma {
    */
 
 
-  export type UserWhereInput = {
-    AND?: UserWhereInput | UserWhereInput[]
-    OR?: UserWhereInput[]
-    NOT?: UserWhereInput | UserWhereInput[]
-    id?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
-    firstName?: StringFilter<"User"> | string
-    lastName?: StringFilter<"User"> | string
-    phone?: StringNullableFilter<"User"> | string | null
-    authId?: StringNullableFilter<"User"> | string | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
+  export type ProfileWhereInput = {
+    AND?: ProfileWhereInput | ProfileWhereInput[]
+    OR?: ProfileWhereInput[]
+    NOT?: ProfileWhereInput | ProfileWhereInput[]
+    id?: StringFilter<"Profile"> | string
+    firstName?: StringFilter<"Profile"> | string
+    lastName?: StringFilter<"Profile"> | string
+    phone?: StringNullableFilter<"Profile"> | string | null
+    avatarUrl?: StringNullableFilter<"Profile"> | string | null
+    createdAt?: DateTimeFilter<"Profile"> | Date | string
+    updatedAt?: DateTimeFilter<"Profile"> | Date | string
     properties?: PropertyListRelationFilter
     tenants?: TenantListRelationFilter
     financialTransactions?: FinancialTransactionListRelationFilter
     documents?: DocumentListRelationFilter
   }
 
-  export type UserOrderByWithRelationInput = {
+  export type ProfileOrderByWithRelationInput = {
     id?: SortOrder
-    email?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
     phone?: SortOrderInput | SortOrder
-    authId?: SortOrderInput | SortOrder
+    avatarUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     properties?: PropertyOrderByRelationAggregateInput
@@ -7956,50 +7940,47 @@ export namespace Prisma {
     documents?: DocumentOrderByRelationAggregateInput
   }
 
-  export type UserWhereUniqueInput = Prisma.AtLeast<{
+  export type ProfileWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    email?: string
-    authId?: string
-    AND?: UserWhereInput | UserWhereInput[]
-    OR?: UserWhereInput[]
-    NOT?: UserWhereInput | UserWhereInput[]
-    firstName?: StringFilter<"User"> | string
-    lastName?: StringFilter<"User"> | string
-    phone?: StringNullableFilter<"User"> | string | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
+    AND?: ProfileWhereInput | ProfileWhereInput[]
+    OR?: ProfileWhereInput[]
+    NOT?: ProfileWhereInput | ProfileWhereInput[]
+    firstName?: StringFilter<"Profile"> | string
+    lastName?: StringFilter<"Profile"> | string
+    phone?: StringNullableFilter<"Profile"> | string | null
+    avatarUrl?: StringNullableFilter<"Profile"> | string | null
+    createdAt?: DateTimeFilter<"Profile"> | Date | string
+    updatedAt?: DateTimeFilter<"Profile"> | Date | string
     properties?: PropertyListRelationFilter
     tenants?: TenantListRelationFilter
     financialTransactions?: FinancialTransactionListRelationFilter
     documents?: DocumentListRelationFilter
-  }, "id" | "email" | "authId">
+  }, "id">
 
-  export type UserOrderByWithAggregationInput = {
+  export type ProfileOrderByWithAggregationInput = {
     id?: SortOrder
-    email?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
     phone?: SortOrderInput | SortOrder
-    authId?: SortOrderInput | SortOrder
+    avatarUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: UserCountOrderByAggregateInput
-    _max?: UserMaxOrderByAggregateInput
-    _min?: UserMinOrderByAggregateInput
+    _count?: ProfileCountOrderByAggregateInput
+    _max?: ProfileMaxOrderByAggregateInput
+    _min?: ProfileMinOrderByAggregateInput
   }
 
-  export type UserScalarWhereWithAggregatesInput = {
-    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    OR?: UserScalarWhereWithAggregatesInput[]
-    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"User"> | string
-    email?: StringWithAggregatesFilter<"User"> | string
-    firstName?: StringWithAggregatesFilter<"User"> | string
-    lastName?: StringWithAggregatesFilter<"User"> | string
-    phone?: StringNullableWithAggregatesFilter<"User"> | string | null
-    authId?: StringNullableWithAggregatesFilter<"User"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+  export type ProfileScalarWhereWithAggregatesInput = {
+    AND?: ProfileScalarWhereWithAggregatesInput | ProfileScalarWhereWithAggregatesInput[]
+    OR?: ProfileScalarWhereWithAggregatesInput[]
+    NOT?: ProfileScalarWhereWithAggregatesInput | ProfileScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Profile"> | string
+    firstName?: StringWithAggregatesFilter<"Profile"> | string
+    lastName?: StringWithAggregatesFilter<"Profile"> | string
+    phone?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    avatarUrl?: StringNullableWithAggregatesFilter<"Profile"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Profile"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Profile"> | Date | string
   }
 
   export type PropertyWhereInput = {
@@ -8026,7 +8007,7 @@ export namespace Prisma {
     ownerId?: StringFilter<"Property"> | string
     createdAt?: DateTimeFilter<"Property"> | Date | string
     updatedAt?: DateTimeFilter<"Property"> | Date | string
-    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    owner?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
     tenants?: TenantListRelationFilter
     financialTransactions?: FinancialTransactionListRelationFilter
     documents?: DocumentListRelationFilter
@@ -8053,7 +8034,7 @@ export namespace Prisma {
     ownerId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    owner?: UserOrderByWithRelationInput
+    owner?: ProfileOrderByWithRelationInput
     tenants?: TenantOrderByRelationAggregateInput
     financialTransactions?: FinancialTransactionOrderByRelationAggregateInput
     documents?: DocumentOrderByRelationAggregateInput
@@ -8083,7 +8064,7 @@ export namespace Prisma {
     ownerId?: StringFilter<"Property"> | string
     createdAt?: DateTimeFilter<"Property"> | Date | string
     updatedAt?: DateTimeFilter<"Property"> | Date | string
-    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    owner?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
     tenants?: TenantListRelationFilter
     financialTransactions?: FinancialTransactionListRelationFilter
     documents?: DocumentListRelationFilter
@@ -8163,7 +8144,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Tenant"> | Date | string
     updatedAt?: DateTimeFilter<"Tenant"> | Date | string
     property?: XOR<PropertyScalarRelationFilter, PropertyWhereInput>
-    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    owner?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
   }
 
   export type TenantOrderByWithRelationInput = {
@@ -8183,7 +8164,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     property?: PropertyOrderByWithRelationInput
-    owner?: UserOrderByWithRelationInput
+    owner?: ProfileOrderByWithRelationInput
   }
 
   export type TenantWhereUniqueInput = Prisma.AtLeast<{
@@ -8206,7 +8187,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Tenant"> | Date | string
     updatedAt?: DateTimeFilter<"Tenant"> | Date | string
     property?: XOR<PropertyScalarRelationFilter, PropertyWhereInput>
-    owner?: XOR<UserScalarRelationFilter, UserWhereInput>
+    owner?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
   }, "id">
 
   export type TenantOrderByWithAggregationInput = {
@@ -8269,7 +8250,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"FinancialTransaction"> | Date | string
     updatedAt?: DateTimeFilter<"FinancialTransaction"> | Date | string
     property?: XOR<PropertyNullableScalarRelationFilter, PropertyWhereInput> | null
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
   }
 
   export type FinancialTransactionOrderByWithRelationInput = {
@@ -8285,7 +8266,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     property?: PropertyOrderByWithRelationInput
-    user?: UserOrderByWithRelationInput
+    profile?: ProfileOrderByWithRelationInput
   }
 
   export type FinancialTransactionWhereUniqueInput = Prisma.AtLeast<{
@@ -8304,7 +8285,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"FinancialTransaction"> | Date | string
     updatedAt?: DateTimeFilter<"FinancialTransaction"> | Date | string
     property?: XOR<PropertyNullableScalarRelationFilter, PropertyWhereInput> | null
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
   }, "id">
 
   export type FinancialTransactionOrderByWithAggregationInput = {
@@ -8360,7 +8341,7 @@ export namespace Prisma {
     uploadedAt?: DateTimeFilter<"Document"> | Date | string
     updatedAt?: DateTimeFilter<"Document"> | Date | string
     property?: XOR<PropertyNullableScalarRelationFilter, PropertyWhereInput> | null
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
   }
 
   export type DocumentOrderByWithRelationInput = {
@@ -8377,7 +8358,7 @@ export namespace Prisma {
     uploadedAt?: SortOrder
     updatedAt?: SortOrder
     property?: PropertyOrderByWithRelationInput
-    user?: UserOrderByWithRelationInput
+    profile?: ProfileOrderByWithRelationInput
   }
 
   export type DocumentWhereUniqueInput = Prisma.AtLeast<{
@@ -8397,7 +8378,7 @@ export namespace Prisma {
     uploadedAt?: DateTimeFilter<"Document"> | Date | string
     updatedAt?: DateTimeFilter<"Document"> | Date | string
     property?: XOR<PropertyNullableScalarRelationFilter, PropertyWhereInput> | null
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    profile?: XOR<ProfileScalarRelationFilter, ProfileWhereInput>
   }, "id">
 
   export type DocumentOrderByWithAggregationInput = {
@@ -8438,95 +8419,88 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Document"> | Date | string
   }
 
-  export type UserCreateInput = {
-    id?: string
-    email: string
+  export type ProfileCreateInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     properties?: PropertyCreateNestedManyWithoutOwnerInput
     tenants?: TenantCreateNestedManyWithoutOwnerInput
-    financialTransactions?: FinancialTransactionCreateNestedManyWithoutUserInput
-    documents?: DocumentCreateNestedManyWithoutUserInput
+    financialTransactions?: FinancialTransactionCreateNestedManyWithoutProfileInput
+    documents?: DocumentCreateNestedManyWithoutProfileInput
   }
 
-  export type UserUncheckedCreateInput = {
-    id?: string
-    email: string
+  export type ProfileUncheckedCreateInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     properties?: PropertyUncheckedCreateNestedManyWithoutOwnerInput
     tenants?: TenantUncheckedCreateNestedManyWithoutOwnerInput
-    financialTransactions?: FinancialTransactionUncheckedCreateNestedManyWithoutUserInput
-    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    financialTransactions?: FinancialTransactionUncheckedCreateNestedManyWithoutProfileInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutProfileInput
   }
 
-  export type UserUpdateInput = {
+  export type ProfileUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     properties?: PropertyUpdateManyWithoutOwnerNestedInput
     tenants?: TenantUpdateManyWithoutOwnerNestedInput
-    financialTransactions?: FinancialTransactionUpdateManyWithoutUserNestedInput
-    documents?: DocumentUpdateManyWithoutUserNestedInput
+    financialTransactions?: FinancialTransactionUpdateManyWithoutProfileNestedInput
+    documents?: DocumentUpdateManyWithoutProfileNestedInput
   }
 
-  export type UserUncheckedUpdateInput = {
+  export type ProfileUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     properties?: PropertyUncheckedUpdateManyWithoutOwnerNestedInput
     tenants?: TenantUncheckedUpdateManyWithoutOwnerNestedInput
-    financialTransactions?: FinancialTransactionUncheckedUpdateManyWithoutUserNestedInput
-    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    financialTransactions?: FinancialTransactionUncheckedUpdateManyWithoutProfileNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutProfileNestedInput
   }
 
-  export type UserCreateManyInput = {
-    id?: string
-    email: string
+  export type ProfileCreateManyInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type UserUpdateManyMutationInput = {
+  export type ProfileUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type UserUncheckedUpdateManyInput = {
+  export type ProfileUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8551,7 +8525,7 @@ export namespace Prisma {
     images?: PropertyCreateimagesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    owner: UserCreateNestedOneWithoutPropertiesInput
+    owner: ProfileCreateNestedOneWithoutPropertiesInput
     tenants?: TenantCreateNestedManyWithoutPropertyInput
     financialTransactions?: FinancialTransactionCreateNestedManyWithoutPropertyInput
     documents?: DocumentCreateNestedManyWithoutPropertyInput
@@ -8603,7 +8577,7 @@ export namespace Prisma {
     images?: PropertyUpdateimagesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutPropertiesNestedInput
+    owner?: ProfileUpdateOneRequiredWithoutPropertiesNestedInput
     tenants?: TenantUpdateManyWithoutPropertyNestedInput
     financialTransactions?: FinancialTransactionUpdateManyWithoutPropertyNestedInput
     documents?: DocumentUpdateManyWithoutPropertyNestedInput
@@ -8718,7 +8692,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     property: PropertyCreateNestedOneWithoutTenantsInput
-    owner: UserCreateNestedOneWithoutTenantsInput
+    owner: ProfileCreateNestedOneWithoutTenantsInput
   }
 
   export type TenantUncheckedCreateInput = {
@@ -8754,7 +8728,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     property?: PropertyUpdateOneRequiredWithoutTenantsNestedInput
-    owner?: UserUpdateOneRequiredWithoutTenantsNestedInput
+    owner?: ProfileUpdateOneRequiredWithoutTenantsNestedInput
   }
 
   export type TenantUncheckedUpdateInput = {
@@ -8838,7 +8812,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     property?: PropertyCreateNestedOneWithoutFinancialTransactionsInput
-    user: UserCreateNestedOneWithoutFinancialTransactionsInput
+    profile: ProfileCreateNestedOneWithoutFinancialTransactionsInput
   }
 
   export type FinancialTransactionUncheckedCreateInput = {
@@ -8866,7 +8840,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     property?: PropertyUpdateOneWithoutFinancialTransactionsNestedInput
-    user?: UserUpdateOneRequiredWithoutFinancialTransactionsNestedInput
+    profile?: ProfileUpdateOneRequiredWithoutFinancialTransactionsNestedInput
   }
 
   export type FinancialTransactionUncheckedUpdateInput = {
@@ -8935,7 +8909,7 @@ export namespace Prisma {
     uploadedAt?: Date | string
     updatedAt?: Date | string
     property?: PropertyCreateNestedOneWithoutDocumentsInput
-    user: UserCreateNestedOneWithoutDocumentsInput
+    profile: ProfileCreateNestedOneWithoutDocumentsInput
   }
 
   export type DocumentUncheckedCreateInput = {
@@ -8965,7 +8939,7 @@ export namespace Prisma {
     uploadedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     property?: PropertyUpdateOneWithoutDocumentsNestedInput
-    user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+    profile?: ProfileUpdateOneRequiredWithoutDocumentsNestedInput
   }
 
   export type DocumentUncheckedUpdateInput = {
@@ -9112,35 +9086,32 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type UserCountOrderByAggregateInput = {
+  export type ProfileCountOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
     phone?: SortOrder
-    authId?: SortOrder
+    avatarUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type UserMaxOrderByAggregateInput = {
+  export type ProfileMaxOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
     phone?: SortOrder
-    authId?: SortOrder
+    avatarUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type UserMinOrderByAggregateInput = {
+  export type ProfileMinOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
     phone?: SortOrder
-    authId?: SortOrder
+    avatarUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -9262,9 +9233,9 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
+  export type ProfileScalarRelationFilter = {
+    is?: ProfileWhereInput
+    isNot?: ProfileWhereInput
   }
 
   export type PropertyCountOrderByAggregateInput = {
@@ -9691,17 +9662,17 @@ export namespace Prisma {
     connect?: TenantWhereUniqueInput | TenantWhereUniqueInput[]
   }
 
-  export type FinancialTransactionCreateNestedManyWithoutUserInput = {
-    create?: XOR<FinancialTransactionCreateWithoutUserInput, FinancialTransactionUncheckedCreateWithoutUserInput> | FinancialTransactionCreateWithoutUserInput[] | FinancialTransactionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FinancialTransactionCreateOrConnectWithoutUserInput | FinancialTransactionCreateOrConnectWithoutUserInput[]
-    createMany?: FinancialTransactionCreateManyUserInputEnvelope
+  export type FinancialTransactionCreateNestedManyWithoutProfileInput = {
+    create?: XOR<FinancialTransactionCreateWithoutProfileInput, FinancialTransactionUncheckedCreateWithoutProfileInput> | FinancialTransactionCreateWithoutProfileInput[] | FinancialTransactionUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: FinancialTransactionCreateOrConnectWithoutProfileInput | FinancialTransactionCreateOrConnectWithoutProfileInput[]
+    createMany?: FinancialTransactionCreateManyProfileInputEnvelope
     connect?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
   }
 
-  export type DocumentCreateNestedManyWithoutUserInput = {
-    create?: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput> | DocumentCreateWithoutUserInput[] | DocumentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DocumentCreateOrConnectWithoutUserInput | DocumentCreateOrConnectWithoutUserInput[]
-    createMany?: DocumentCreateManyUserInputEnvelope
+  export type DocumentCreateNestedManyWithoutProfileInput = {
+    create?: XOR<DocumentCreateWithoutProfileInput, DocumentUncheckedCreateWithoutProfileInput> | DocumentCreateWithoutProfileInput[] | DocumentUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutProfileInput | DocumentCreateOrConnectWithoutProfileInput[]
+    createMany?: DocumentCreateManyProfileInputEnvelope
     connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
   }
 
@@ -9719,17 +9690,17 @@ export namespace Prisma {
     connect?: TenantWhereUniqueInput | TenantWhereUniqueInput[]
   }
 
-  export type FinancialTransactionUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<FinancialTransactionCreateWithoutUserInput, FinancialTransactionUncheckedCreateWithoutUserInput> | FinancialTransactionCreateWithoutUserInput[] | FinancialTransactionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FinancialTransactionCreateOrConnectWithoutUserInput | FinancialTransactionCreateOrConnectWithoutUserInput[]
-    createMany?: FinancialTransactionCreateManyUserInputEnvelope
+  export type FinancialTransactionUncheckedCreateNestedManyWithoutProfileInput = {
+    create?: XOR<FinancialTransactionCreateWithoutProfileInput, FinancialTransactionUncheckedCreateWithoutProfileInput> | FinancialTransactionCreateWithoutProfileInput[] | FinancialTransactionUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: FinancialTransactionCreateOrConnectWithoutProfileInput | FinancialTransactionCreateOrConnectWithoutProfileInput[]
+    createMany?: FinancialTransactionCreateManyProfileInputEnvelope
     connect?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
   }
 
-  export type DocumentUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput> | DocumentCreateWithoutUserInput[] | DocumentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DocumentCreateOrConnectWithoutUserInput | DocumentCreateOrConnectWithoutUserInput[]
-    createMany?: DocumentCreateManyUserInputEnvelope
+  export type DocumentUncheckedCreateNestedManyWithoutProfileInput = {
+    create?: XOR<DocumentCreateWithoutProfileInput, DocumentUncheckedCreateWithoutProfileInput> | DocumentCreateWithoutProfileInput[] | DocumentUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutProfileInput | DocumentCreateOrConnectWithoutProfileInput[]
+    createMany?: DocumentCreateManyProfileInputEnvelope
     connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
   }
 
@@ -9773,31 +9744,31 @@ export namespace Prisma {
     deleteMany?: TenantScalarWhereInput | TenantScalarWhereInput[]
   }
 
-  export type FinancialTransactionUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FinancialTransactionCreateWithoutUserInput, FinancialTransactionUncheckedCreateWithoutUserInput> | FinancialTransactionCreateWithoutUserInput[] | FinancialTransactionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FinancialTransactionCreateOrConnectWithoutUserInput | FinancialTransactionCreateOrConnectWithoutUserInput[]
-    upsert?: FinancialTransactionUpsertWithWhereUniqueWithoutUserInput | FinancialTransactionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FinancialTransactionCreateManyUserInputEnvelope
+  export type FinancialTransactionUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<FinancialTransactionCreateWithoutProfileInput, FinancialTransactionUncheckedCreateWithoutProfileInput> | FinancialTransactionCreateWithoutProfileInput[] | FinancialTransactionUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: FinancialTransactionCreateOrConnectWithoutProfileInput | FinancialTransactionCreateOrConnectWithoutProfileInput[]
+    upsert?: FinancialTransactionUpsertWithWhereUniqueWithoutProfileInput | FinancialTransactionUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: FinancialTransactionCreateManyProfileInputEnvelope
     set?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
     disconnect?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
     delete?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
     connect?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
-    update?: FinancialTransactionUpdateWithWhereUniqueWithoutUserInput | FinancialTransactionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FinancialTransactionUpdateManyWithWhereWithoutUserInput | FinancialTransactionUpdateManyWithWhereWithoutUserInput[]
+    update?: FinancialTransactionUpdateWithWhereUniqueWithoutProfileInput | FinancialTransactionUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: FinancialTransactionUpdateManyWithWhereWithoutProfileInput | FinancialTransactionUpdateManyWithWhereWithoutProfileInput[]
     deleteMany?: FinancialTransactionScalarWhereInput | FinancialTransactionScalarWhereInput[]
   }
 
-  export type DocumentUpdateManyWithoutUserNestedInput = {
-    create?: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput> | DocumentCreateWithoutUserInput[] | DocumentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DocumentCreateOrConnectWithoutUserInput | DocumentCreateOrConnectWithoutUserInput[]
-    upsert?: DocumentUpsertWithWhereUniqueWithoutUserInput | DocumentUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: DocumentCreateManyUserInputEnvelope
+  export type DocumentUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<DocumentCreateWithoutProfileInput, DocumentUncheckedCreateWithoutProfileInput> | DocumentCreateWithoutProfileInput[] | DocumentUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutProfileInput | DocumentCreateOrConnectWithoutProfileInput[]
+    upsert?: DocumentUpsertWithWhereUniqueWithoutProfileInput | DocumentUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: DocumentCreateManyProfileInputEnvelope
     set?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
     disconnect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
     delete?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
     connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
-    update?: DocumentUpdateWithWhereUniqueWithoutUserInput | DocumentUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: DocumentUpdateManyWithWhereWithoutUserInput | DocumentUpdateManyWithWhereWithoutUserInput[]
+    update?: DocumentUpdateWithWhereUniqueWithoutProfileInput | DocumentUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: DocumentUpdateManyWithWhereWithoutProfileInput | DocumentUpdateManyWithWhereWithoutProfileInput[]
     deleteMany?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
   }
 
@@ -9829,31 +9800,31 @@ export namespace Prisma {
     deleteMany?: TenantScalarWhereInput | TenantScalarWhereInput[]
   }
 
-  export type FinancialTransactionUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FinancialTransactionCreateWithoutUserInput, FinancialTransactionUncheckedCreateWithoutUserInput> | FinancialTransactionCreateWithoutUserInput[] | FinancialTransactionUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FinancialTransactionCreateOrConnectWithoutUserInput | FinancialTransactionCreateOrConnectWithoutUserInput[]
-    upsert?: FinancialTransactionUpsertWithWhereUniqueWithoutUserInput | FinancialTransactionUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FinancialTransactionCreateManyUserInputEnvelope
+  export type FinancialTransactionUncheckedUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<FinancialTransactionCreateWithoutProfileInput, FinancialTransactionUncheckedCreateWithoutProfileInput> | FinancialTransactionCreateWithoutProfileInput[] | FinancialTransactionUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: FinancialTransactionCreateOrConnectWithoutProfileInput | FinancialTransactionCreateOrConnectWithoutProfileInput[]
+    upsert?: FinancialTransactionUpsertWithWhereUniqueWithoutProfileInput | FinancialTransactionUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: FinancialTransactionCreateManyProfileInputEnvelope
     set?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
     disconnect?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
     delete?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
     connect?: FinancialTransactionWhereUniqueInput | FinancialTransactionWhereUniqueInput[]
-    update?: FinancialTransactionUpdateWithWhereUniqueWithoutUserInput | FinancialTransactionUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FinancialTransactionUpdateManyWithWhereWithoutUserInput | FinancialTransactionUpdateManyWithWhereWithoutUserInput[]
+    update?: FinancialTransactionUpdateWithWhereUniqueWithoutProfileInput | FinancialTransactionUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: FinancialTransactionUpdateManyWithWhereWithoutProfileInput | FinancialTransactionUpdateManyWithWhereWithoutProfileInput[]
     deleteMany?: FinancialTransactionScalarWhereInput | FinancialTransactionScalarWhereInput[]
   }
 
-  export type DocumentUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput> | DocumentCreateWithoutUserInput[] | DocumentUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DocumentCreateOrConnectWithoutUserInput | DocumentCreateOrConnectWithoutUserInput[]
-    upsert?: DocumentUpsertWithWhereUniqueWithoutUserInput | DocumentUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: DocumentCreateManyUserInputEnvelope
+  export type DocumentUncheckedUpdateManyWithoutProfileNestedInput = {
+    create?: XOR<DocumentCreateWithoutProfileInput, DocumentUncheckedCreateWithoutProfileInput> | DocumentCreateWithoutProfileInput[] | DocumentUncheckedCreateWithoutProfileInput[]
+    connectOrCreate?: DocumentCreateOrConnectWithoutProfileInput | DocumentCreateOrConnectWithoutProfileInput[]
+    upsert?: DocumentUpsertWithWhereUniqueWithoutProfileInput | DocumentUpsertWithWhereUniqueWithoutProfileInput[]
+    createMany?: DocumentCreateManyProfileInputEnvelope
     set?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
     disconnect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
     delete?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
     connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
-    update?: DocumentUpdateWithWhereUniqueWithoutUserInput | DocumentUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: DocumentUpdateManyWithWhereWithoutUserInput | DocumentUpdateManyWithWhereWithoutUserInput[]
+    update?: DocumentUpdateWithWhereUniqueWithoutProfileInput | DocumentUpdateWithWhereUniqueWithoutProfileInput[]
+    updateMany?: DocumentUpdateManyWithWhereWithoutProfileInput | DocumentUpdateManyWithWhereWithoutProfileInput[]
     deleteMany?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
   }
 
@@ -9869,10 +9840,10 @@ export namespace Prisma {
     set: string[]
   }
 
-  export type UserCreateNestedOneWithoutPropertiesInput = {
-    create?: XOR<UserCreateWithoutPropertiesInput, UserUncheckedCreateWithoutPropertiesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPropertiesInput
-    connect?: UserWhereUniqueInput
+  export type ProfileCreateNestedOneWithoutPropertiesInput = {
+    create?: XOR<ProfileCreateWithoutPropertiesInput, ProfileUncheckedCreateWithoutPropertiesInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutPropertiesInput
+    connect?: ProfileWhereUniqueInput
   }
 
   export type TenantCreateNestedManyWithoutPropertyInput = {
@@ -9964,12 +9935,12 @@ export namespace Prisma {
     push?: string | string[]
   }
 
-  export type UserUpdateOneRequiredWithoutPropertiesNestedInput = {
-    create?: XOR<UserCreateWithoutPropertiesInput, UserUncheckedCreateWithoutPropertiesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutPropertiesInput
-    upsert?: UserUpsertWithoutPropertiesInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPropertiesInput, UserUpdateWithoutPropertiesInput>, UserUncheckedUpdateWithoutPropertiesInput>
+  export type ProfileUpdateOneRequiredWithoutPropertiesNestedInput = {
+    create?: XOR<ProfileCreateWithoutPropertiesInput, ProfileUncheckedCreateWithoutPropertiesInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutPropertiesInput
+    upsert?: ProfileUpsertWithoutPropertiesInput
+    connect?: ProfileWhereUniqueInput
+    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutPropertiesInput, ProfileUpdateWithoutPropertiesInput>, ProfileUncheckedUpdateWithoutPropertiesInput>
   }
 
   export type TenantUpdateManyWithoutPropertyNestedInput = {
@@ -10062,10 +10033,10 @@ export namespace Prisma {
     connect?: PropertyWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutTenantsInput = {
-    create?: XOR<UserCreateWithoutTenantsInput, UserUncheckedCreateWithoutTenantsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutTenantsInput
-    connect?: UserWhereUniqueInput
+  export type ProfileCreateNestedOneWithoutTenantsInput = {
+    create?: XOR<ProfileCreateWithoutTenantsInput, ProfileUncheckedCreateWithoutTenantsInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutTenantsInput
+    connect?: ProfileWhereUniqueInput
   }
 
   export type PropertyUpdateOneRequiredWithoutTenantsNestedInput = {
@@ -10076,12 +10047,12 @@ export namespace Prisma {
     update?: XOR<XOR<PropertyUpdateToOneWithWhereWithoutTenantsInput, PropertyUpdateWithoutTenantsInput>, PropertyUncheckedUpdateWithoutTenantsInput>
   }
 
-  export type UserUpdateOneRequiredWithoutTenantsNestedInput = {
-    create?: XOR<UserCreateWithoutTenantsInput, UserUncheckedCreateWithoutTenantsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutTenantsInput
-    upsert?: UserUpsertWithoutTenantsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTenantsInput, UserUpdateWithoutTenantsInput>, UserUncheckedUpdateWithoutTenantsInput>
+  export type ProfileUpdateOneRequiredWithoutTenantsNestedInput = {
+    create?: XOR<ProfileCreateWithoutTenantsInput, ProfileUncheckedCreateWithoutTenantsInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutTenantsInput
+    upsert?: ProfileUpsertWithoutTenantsInput
+    connect?: ProfileWhereUniqueInput
+    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutTenantsInput, ProfileUpdateWithoutTenantsInput>, ProfileUncheckedUpdateWithoutTenantsInput>
   }
 
   export type PropertyCreateNestedOneWithoutFinancialTransactionsInput = {
@@ -10090,10 +10061,10 @@ export namespace Prisma {
     connect?: PropertyWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutFinancialTransactionsInput = {
-    create?: XOR<UserCreateWithoutFinancialTransactionsInput, UserUncheckedCreateWithoutFinancialTransactionsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFinancialTransactionsInput
-    connect?: UserWhereUniqueInput
+  export type ProfileCreateNestedOneWithoutFinancialTransactionsInput = {
+    create?: XOR<ProfileCreateWithoutFinancialTransactionsInput, ProfileUncheckedCreateWithoutFinancialTransactionsInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutFinancialTransactionsInput
+    connect?: ProfileWhereUniqueInput
   }
 
   export type EnumTransactionTypeFieldUpdateOperationsInput = {
@@ -10114,12 +10085,12 @@ export namespace Prisma {
     update?: XOR<XOR<PropertyUpdateToOneWithWhereWithoutFinancialTransactionsInput, PropertyUpdateWithoutFinancialTransactionsInput>, PropertyUncheckedUpdateWithoutFinancialTransactionsInput>
   }
 
-  export type UserUpdateOneRequiredWithoutFinancialTransactionsNestedInput = {
-    create?: XOR<UserCreateWithoutFinancialTransactionsInput, UserUncheckedCreateWithoutFinancialTransactionsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFinancialTransactionsInput
-    upsert?: UserUpsertWithoutFinancialTransactionsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFinancialTransactionsInput, UserUpdateWithoutFinancialTransactionsInput>, UserUncheckedUpdateWithoutFinancialTransactionsInput>
+  export type ProfileUpdateOneRequiredWithoutFinancialTransactionsNestedInput = {
+    create?: XOR<ProfileCreateWithoutFinancialTransactionsInput, ProfileUncheckedCreateWithoutFinancialTransactionsInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutFinancialTransactionsInput
+    upsert?: ProfileUpsertWithoutFinancialTransactionsInput
+    connect?: ProfileWhereUniqueInput
+    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutFinancialTransactionsInput, ProfileUpdateWithoutFinancialTransactionsInput>, ProfileUncheckedUpdateWithoutFinancialTransactionsInput>
   }
 
   export type PropertyCreateNestedOneWithoutDocumentsInput = {
@@ -10128,10 +10099,10 @@ export namespace Prisma {
     connect?: PropertyWhereUniqueInput
   }
 
-  export type UserCreateNestedOneWithoutDocumentsInput = {
-    create?: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutDocumentsInput
-    connect?: UserWhereUniqueInput
+  export type ProfileCreateNestedOneWithoutDocumentsInput = {
+    create?: XOR<ProfileCreateWithoutDocumentsInput, ProfileUncheckedCreateWithoutDocumentsInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutDocumentsInput
+    connect?: ProfileWhereUniqueInput
   }
 
   export type EnumDocumentTypeFieldUpdateOperationsInput = {
@@ -10156,12 +10127,12 @@ export namespace Prisma {
     update?: XOR<XOR<PropertyUpdateToOneWithWhereWithoutDocumentsInput, PropertyUpdateWithoutDocumentsInput>, PropertyUncheckedUpdateWithoutDocumentsInput>
   }
 
-  export type UserUpdateOneRequiredWithoutDocumentsNestedInput = {
-    create?: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutDocumentsInput
-    upsert?: UserUpsertWithoutDocumentsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutDocumentsInput, UserUpdateWithoutDocumentsInput>, UserUncheckedUpdateWithoutDocumentsInput>
+  export type ProfileUpdateOneRequiredWithoutDocumentsNestedInput = {
+    create?: XOR<ProfileCreateWithoutDocumentsInput, ProfileUncheckedCreateWithoutDocumentsInput>
+    connectOrCreate?: ProfileCreateOrConnectWithoutDocumentsInput
+    upsert?: ProfileUpsertWithoutDocumentsInput
+    connect?: ProfileWhereUniqueInput
+    update?: XOR<XOR<ProfileUpdateToOneWithWhereWithoutDocumentsInput, ProfileUpdateWithoutDocumentsInput>, ProfileUncheckedUpdateWithoutDocumentsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -10578,7 +10549,7 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type FinancialTransactionCreateWithoutUserInput = {
+  export type FinancialTransactionCreateWithoutProfileInput = {
     id?: string
     type: $Enums.TransactionType
     category: $Enums.TransactionCategory
@@ -10591,7 +10562,7 @@ export namespace Prisma {
     property?: PropertyCreateNestedOneWithoutFinancialTransactionsInput
   }
 
-  export type FinancialTransactionUncheckedCreateWithoutUserInput = {
+  export type FinancialTransactionUncheckedCreateWithoutProfileInput = {
     id?: string
     type: $Enums.TransactionType
     category: $Enums.TransactionCategory
@@ -10604,17 +10575,17 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type FinancialTransactionCreateOrConnectWithoutUserInput = {
+  export type FinancialTransactionCreateOrConnectWithoutProfileInput = {
     where: FinancialTransactionWhereUniqueInput
-    create: XOR<FinancialTransactionCreateWithoutUserInput, FinancialTransactionUncheckedCreateWithoutUserInput>
+    create: XOR<FinancialTransactionCreateWithoutProfileInput, FinancialTransactionUncheckedCreateWithoutProfileInput>
   }
 
-  export type FinancialTransactionCreateManyUserInputEnvelope = {
-    data: FinancialTransactionCreateManyUserInput | FinancialTransactionCreateManyUserInput[]
+  export type FinancialTransactionCreateManyProfileInputEnvelope = {
+    data: FinancialTransactionCreateManyProfileInput | FinancialTransactionCreateManyProfileInput[]
     skipDuplicates?: boolean
   }
 
-  export type DocumentCreateWithoutUserInput = {
+  export type DocumentCreateWithoutProfileInput = {
     id?: string
     type: $Enums.DocumentType
     title: string
@@ -10628,7 +10599,7 @@ export namespace Prisma {
     property?: PropertyCreateNestedOneWithoutDocumentsInput
   }
 
-  export type DocumentUncheckedCreateWithoutUserInput = {
+  export type DocumentUncheckedCreateWithoutProfileInput = {
     id?: string
     type: $Enums.DocumentType
     title: string
@@ -10642,13 +10613,13 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type DocumentCreateOrConnectWithoutUserInput = {
+  export type DocumentCreateOrConnectWithoutProfileInput = {
     where: DocumentWhereUniqueInput
-    create: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput>
+    create: XOR<DocumentCreateWithoutProfileInput, DocumentUncheckedCreateWithoutProfileInput>
   }
 
-  export type DocumentCreateManyUserInputEnvelope = {
-    data: DocumentCreateManyUserInput | DocumentCreateManyUserInput[]
+  export type DocumentCreateManyProfileInputEnvelope = {
+    data: DocumentCreateManyProfileInput | DocumentCreateManyProfileInput[]
     skipDuplicates?: boolean
   }
 
@@ -10731,20 +10702,20 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Tenant"> | Date | string
   }
 
-  export type FinancialTransactionUpsertWithWhereUniqueWithoutUserInput = {
+  export type FinancialTransactionUpsertWithWhereUniqueWithoutProfileInput = {
     where: FinancialTransactionWhereUniqueInput
-    update: XOR<FinancialTransactionUpdateWithoutUserInput, FinancialTransactionUncheckedUpdateWithoutUserInput>
-    create: XOR<FinancialTransactionCreateWithoutUserInput, FinancialTransactionUncheckedCreateWithoutUserInput>
+    update: XOR<FinancialTransactionUpdateWithoutProfileInput, FinancialTransactionUncheckedUpdateWithoutProfileInput>
+    create: XOR<FinancialTransactionCreateWithoutProfileInput, FinancialTransactionUncheckedCreateWithoutProfileInput>
   }
 
-  export type FinancialTransactionUpdateWithWhereUniqueWithoutUserInput = {
+  export type FinancialTransactionUpdateWithWhereUniqueWithoutProfileInput = {
     where: FinancialTransactionWhereUniqueInput
-    data: XOR<FinancialTransactionUpdateWithoutUserInput, FinancialTransactionUncheckedUpdateWithoutUserInput>
+    data: XOR<FinancialTransactionUpdateWithoutProfileInput, FinancialTransactionUncheckedUpdateWithoutProfileInput>
   }
 
-  export type FinancialTransactionUpdateManyWithWhereWithoutUserInput = {
+  export type FinancialTransactionUpdateManyWithWhereWithoutProfileInput = {
     where: FinancialTransactionScalarWhereInput
-    data: XOR<FinancialTransactionUpdateManyMutationInput, FinancialTransactionUncheckedUpdateManyWithoutUserInput>
+    data: XOR<FinancialTransactionUpdateManyMutationInput, FinancialTransactionUncheckedUpdateManyWithoutProfileInput>
   }
 
   export type FinancialTransactionScalarWhereInput = {
@@ -10764,20 +10735,20 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"FinancialTransaction"> | Date | string
   }
 
-  export type DocumentUpsertWithWhereUniqueWithoutUserInput = {
+  export type DocumentUpsertWithWhereUniqueWithoutProfileInput = {
     where: DocumentWhereUniqueInput
-    update: XOR<DocumentUpdateWithoutUserInput, DocumentUncheckedUpdateWithoutUserInput>
-    create: XOR<DocumentCreateWithoutUserInput, DocumentUncheckedCreateWithoutUserInput>
+    update: XOR<DocumentUpdateWithoutProfileInput, DocumentUncheckedUpdateWithoutProfileInput>
+    create: XOR<DocumentCreateWithoutProfileInput, DocumentUncheckedCreateWithoutProfileInput>
   }
 
-  export type DocumentUpdateWithWhereUniqueWithoutUserInput = {
+  export type DocumentUpdateWithWhereUniqueWithoutProfileInput = {
     where: DocumentWhereUniqueInput
-    data: XOR<DocumentUpdateWithoutUserInput, DocumentUncheckedUpdateWithoutUserInput>
+    data: XOR<DocumentUpdateWithoutProfileInput, DocumentUncheckedUpdateWithoutProfileInput>
   }
 
-  export type DocumentUpdateManyWithWhereWithoutUserInput = {
+  export type DocumentUpdateManyWithWhereWithoutProfileInput = {
     where: DocumentScalarWhereInput
-    data: XOR<DocumentUpdateManyMutationInput, DocumentUncheckedUpdateManyWithoutUserInput>
+    data: XOR<DocumentUpdateManyMutationInput, DocumentUncheckedUpdateManyWithoutProfileInput>
   }
 
   export type DocumentScalarWhereInput = {
@@ -10798,37 +10769,35 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Document"> | Date | string
   }
 
-  export type UserCreateWithoutPropertiesInput = {
-    id?: string
-    email: string
+  export type ProfileCreateWithoutPropertiesInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     tenants?: TenantCreateNestedManyWithoutOwnerInput
-    financialTransactions?: FinancialTransactionCreateNestedManyWithoutUserInput
-    documents?: DocumentCreateNestedManyWithoutUserInput
+    financialTransactions?: FinancialTransactionCreateNestedManyWithoutProfileInput
+    documents?: DocumentCreateNestedManyWithoutProfileInput
   }
 
-  export type UserUncheckedCreateWithoutPropertiesInput = {
-    id?: string
-    email: string
+  export type ProfileUncheckedCreateWithoutPropertiesInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     tenants?: TenantUncheckedCreateNestedManyWithoutOwnerInput
-    financialTransactions?: FinancialTransactionUncheckedCreateNestedManyWithoutUserInput
-    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    financialTransactions?: FinancialTransactionUncheckedCreateNestedManyWithoutProfileInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutProfileInput
   }
 
-  export type UserCreateOrConnectWithoutPropertiesInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutPropertiesInput, UserUncheckedCreateWithoutPropertiesInput>
+  export type ProfileCreateOrConnectWithoutPropertiesInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutPropertiesInput, ProfileUncheckedCreateWithoutPropertiesInput>
   }
 
   export type TenantCreateWithoutPropertyInput = {
@@ -10845,7 +10814,7 @@ export namespace Prisma {
     notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    owner: UserCreateNestedOneWithoutTenantsInput
+    owner: ProfileCreateNestedOneWithoutTenantsInput
   }
 
   export type TenantUncheckedCreateWithoutPropertyInput = {
@@ -10885,7 +10854,7 @@ export namespace Prisma {
     receiptUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutFinancialTransactionsInput
+    profile: ProfileCreateNestedOneWithoutFinancialTransactionsInput
   }
 
   export type FinancialTransactionUncheckedCreateWithoutPropertyInput = {
@@ -10922,7 +10891,7 @@ export namespace Prisma {
     fileSize: number
     uploadedAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutDocumentsInput
+    profile: ProfileCreateNestedOneWithoutDocumentsInput
   }
 
   export type DocumentUncheckedCreateWithoutPropertyInput = {
@@ -10949,43 +10918,41 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UserUpsertWithoutPropertiesInput = {
-    update: XOR<UserUpdateWithoutPropertiesInput, UserUncheckedUpdateWithoutPropertiesInput>
-    create: XOR<UserCreateWithoutPropertiesInput, UserUncheckedCreateWithoutPropertiesInput>
-    where?: UserWhereInput
+  export type ProfileUpsertWithoutPropertiesInput = {
+    update: XOR<ProfileUpdateWithoutPropertiesInput, ProfileUncheckedUpdateWithoutPropertiesInput>
+    create: XOR<ProfileCreateWithoutPropertiesInput, ProfileUncheckedCreateWithoutPropertiesInput>
+    where?: ProfileWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutPropertiesInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutPropertiesInput, UserUncheckedUpdateWithoutPropertiesInput>
+  export type ProfileUpdateToOneWithWhereWithoutPropertiesInput = {
+    where?: ProfileWhereInput
+    data: XOR<ProfileUpdateWithoutPropertiesInput, ProfileUncheckedUpdateWithoutPropertiesInput>
   }
 
-  export type UserUpdateWithoutPropertiesInput = {
+  export type ProfileUpdateWithoutPropertiesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tenants?: TenantUpdateManyWithoutOwnerNestedInput
-    financialTransactions?: FinancialTransactionUpdateManyWithoutUserNestedInput
-    documents?: DocumentUpdateManyWithoutUserNestedInput
+    financialTransactions?: FinancialTransactionUpdateManyWithoutProfileNestedInput
+    documents?: DocumentUpdateManyWithoutProfileNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutPropertiesInput = {
+  export type ProfileUncheckedUpdateWithoutPropertiesInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tenants?: TenantUncheckedUpdateManyWithoutOwnerNestedInput
-    financialTransactions?: FinancialTransactionUncheckedUpdateManyWithoutUserNestedInput
-    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    financialTransactions?: FinancialTransactionUncheckedUpdateManyWithoutProfileNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutProfileNestedInput
   }
 
   export type TenantUpsertWithWhereUniqueWithoutPropertyInput = {
@@ -11056,7 +11023,7 @@ export namespace Prisma {
     images?: PropertyCreateimagesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    owner: UserCreateNestedOneWithoutPropertiesInput
+    owner: ProfileCreateNestedOneWithoutPropertiesInput
     financialTransactions?: FinancialTransactionCreateNestedManyWithoutPropertyInput
     documents?: DocumentCreateNestedManyWithoutPropertyInput
   }
@@ -11091,37 +11058,35 @@ export namespace Prisma {
     create: XOR<PropertyCreateWithoutTenantsInput, PropertyUncheckedCreateWithoutTenantsInput>
   }
 
-  export type UserCreateWithoutTenantsInput = {
-    id?: string
-    email: string
+  export type ProfileCreateWithoutTenantsInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     properties?: PropertyCreateNestedManyWithoutOwnerInput
-    financialTransactions?: FinancialTransactionCreateNestedManyWithoutUserInput
-    documents?: DocumentCreateNestedManyWithoutUserInput
+    financialTransactions?: FinancialTransactionCreateNestedManyWithoutProfileInput
+    documents?: DocumentCreateNestedManyWithoutProfileInput
   }
 
-  export type UserUncheckedCreateWithoutTenantsInput = {
-    id?: string
-    email: string
+  export type ProfileUncheckedCreateWithoutTenantsInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     properties?: PropertyUncheckedCreateNestedManyWithoutOwnerInput
-    financialTransactions?: FinancialTransactionUncheckedCreateNestedManyWithoutUserInput
-    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    financialTransactions?: FinancialTransactionUncheckedCreateNestedManyWithoutProfileInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutProfileInput
   }
 
-  export type UserCreateOrConnectWithoutTenantsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutTenantsInput, UserUncheckedCreateWithoutTenantsInput>
+  export type ProfileCreateOrConnectWithoutTenantsInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutTenantsInput, ProfileUncheckedCreateWithoutTenantsInput>
   }
 
   export type PropertyUpsertWithoutTenantsInput = {
@@ -11155,7 +11120,7 @@ export namespace Prisma {
     images?: PropertyUpdateimagesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutPropertiesNestedInput
+    owner?: ProfileUpdateOneRequiredWithoutPropertiesNestedInput
     financialTransactions?: FinancialTransactionUpdateManyWithoutPropertyNestedInput
     documents?: DocumentUpdateManyWithoutPropertyNestedInput
   }
@@ -11185,43 +11150,41 @@ export namespace Prisma {
     documents?: DocumentUncheckedUpdateManyWithoutPropertyNestedInput
   }
 
-  export type UserUpsertWithoutTenantsInput = {
-    update: XOR<UserUpdateWithoutTenantsInput, UserUncheckedUpdateWithoutTenantsInput>
-    create: XOR<UserCreateWithoutTenantsInput, UserUncheckedCreateWithoutTenantsInput>
-    where?: UserWhereInput
+  export type ProfileUpsertWithoutTenantsInput = {
+    update: XOR<ProfileUpdateWithoutTenantsInput, ProfileUncheckedUpdateWithoutTenantsInput>
+    create: XOR<ProfileCreateWithoutTenantsInput, ProfileUncheckedCreateWithoutTenantsInput>
+    where?: ProfileWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutTenantsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutTenantsInput, UserUncheckedUpdateWithoutTenantsInput>
+  export type ProfileUpdateToOneWithWhereWithoutTenantsInput = {
+    where?: ProfileWhereInput
+    data: XOR<ProfileUpdateWithoutTenantsInput, ProfileUncheckedUpdateWithoutTenantsInput>
   }
 
-  export type UserUpdateWithoutTenantsInput = {
+  export type ProfileUpdateWithoutTenantsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     properties?: PropertyUpdateManyWithoutOwnerNestedInput
-    financialTransactions?: FinancialTransactionUpdateManyWithoutUserNestedInput
-    documents?: DocumentUpdateManyWithoutUserNestedInput
+    financialTransactions?: FinancialTransactionUpdateManyWithoutProfileNestedInput
+    documents?: DocumentUpdateManyWithoutProfileNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutTenantsInput = {
+  export type ProfileUncheckedUpdateWithoutTenantsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     properties?: PropertyUncheckedUpdateManyWithoutOwnerNestedInput
-    financialTransactions?: FinancialTransactionUncheckedUpdateManyWithoutUserNestedInput
-    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    financialTransactions?: FinancialTransactionUncheckedUpdateManyWithoutProfileNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutProfileNestedInput
   }
 
   export type PropertyCreateWithoutFinancialTransactionsInput = {
@@ -11244,7 +11207,7 @@ export namespace Prisma {
     images?: PropertyCreateimagesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    owner: UserCreateNestedOneWithoutPropertiesInput
+    owner: ProfileCreateNestedOneWithoutPropertiesInput
     tenants?: TenantCreateNestedManyWithoutPropertyInput
     documents?: DocumentCreateNestedManyWithoutPropertyInput
   }
@@ -11279,37 +11242,35 @@ export namespace Prisma {
     create: XOR<PropertyCreateWithoutFinancialTransactionsInput, PropertyUncheckedCreateWithoutFinancialTransactionsInput>
   }
 
-  export type UserCreateWithoutFinancialTransactionsInput = {
-    id?: string
-    email: string
+  export type ProfileCreateWithoutFinancialTransactionsInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     properties?: PropertyCreateNestedManyWithoutOwnerInput
     tenants?: TenantCreateNestedManyWithoutOwnerInput
-    documents?: DocumentCreateNestedManyWithoutUserInput
+    documents?: DocumentCreateNestedManyWithoutProfileInput
   }
 
-  export type UserUncheckedCreateWithoutFinancialTransactionsInput = {
-    id?: string
-    email: string
+  export type ProfileUncheckedCreateWithoutFinancialTransactionsInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     properties?: PropertyUncheckedCreateNestedManyWithoutOwnerInput
     tenants?: TenantUncheckedCreateNestedManyWithoutOwnerInput
-    documents?: DocumentUncheckedCreateNestedManyWithoutUserInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutProfileInput
   }
 
-  export type UserCreateOrConnectWithoutFinancialTransactionsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutFinancialTransactionsInput, UserUncheckedCreateWithoutFinancialTransactionsInput>
+  export type ProfileCreateOrConnectWithoutFinancialTransactionsInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutFinancialTransactionsInput, ProfileUncheckedCreateWithoutFinancialTransactionsInput>
   }
 
   export type PropertyUpsertWithoutFinancialTransactionsInput = {
@@ -11343,7 +11304,7 @@ export namespace Prisma {
     images?: PropertyUpdateimagesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutPropertiesNestedInput
+    owner?: ProfileUpdateOneRequiredWithoutPropertiesNestedInput
     tenants?: TenantUpdateManyWithoutPropertyNestedInput
     documents?: DocumentUpdateManyWithoutPropertyNestedInput
   }
@@ -11373,43 +11334,41 @@ export namespace Prisma {
     documents?: DocumentUncheckedUpdateManyWithoutPropertyNestedInput
   }
 
-  export type UserUpsertWithoutFinancialTransactionsInput = {
-    update: XOR<UserUpdateWithoutFinancialTransactionsInput, UserUncheckedUpdateWithoutFinancialTransactionsInput>
-    create: XOR<UserCreateWithoutFinancialTransactionsInput, UserUncheckedCreateWithoutFinancialTransactionsInput>
-    where?: UserWhereInput
+  export type ProfileUpsertWithoutFinancialTransactionsInput = {
+    update: XOR<ProfileUpdateWithoutFinancialTransactionsInput, ProfileUncheckedUpdateWithoutFinancialTransactionsInput>
+    create: XOR<ProfileCreateWithoutFinancialTransactionsInput, ProfileUncheckedCreateWithoutFinancialTransactionsInput>
+    where?: ProfileWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutFinancialTransactionsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutFinancialTransactionsInput, UserUncheckedUpdateWithoutFinancialTransactionsInput>
+  export type ProfileUpdateToOneWithWhereWithoutFinancialTransactionsInput = {
+    where?: ProfileWhereInput
+    data: XOR<ProfileUpdateWithoutFinancialTransactionsInput, ProfileUncheckedUpdateWithoutFinancialTransactionsInput>
   }
 
-  export type UserUpdateWithoutFinancialTransactionsInput = {
+  export type ProfileUpdateWithoutFinancialTransactionsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     properties?: PropertyUpdateManyWithoutOwnerNestedInput
     tenants?: TenantUpdateManyWithoutOwnerNestedInput
-    documents?: DocumentUpdateManyWithoutUserNestedInput
+    documents?: DocumentUpdateManyWithoutProfileNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutFinancialTransactionsInput = {
+  export type ProfileUncheckedUpdateWithoutFinancialTransactionsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     properties?: PropertyUncheckedUpdateManyWithoutOwnerNestedInput
     tenants?: TenantUncheckedUpdateManyWithoutOwnerNestedInput
-    documents?: DocumentUncheckedUpdateManyWithoutUserNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutProfileNestedInput
   }
 
   export type PropertyCreateWithoutDocumentsInput = {
@@ -11432,7 +11391,7 @@ export namespace Prisma {
     images?: PropertyCreateimagesInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
-    owner: UserCreateNestedOneWithoutPropertiesInput
+    owner: ProfileCreateNestedOneWithoutPropertiesInput
     tenants?: TenantCreateNestedManyWithoutPropertyInput
     financialTransactions?: FinancialTransactionCreateNestedManyWithoutPropertyInput
   }
@@ -11467,37 +11426,35 @@ export namespace Prisma {
     create: XOR<PropertyCreateWithoutDocumentsInput, PropertyUncheckedCreateWithoutDocumentsInput>
   }
 
-  export type UserCreateWithoutDocumentsInput = {
-    id?: string
-    email: string
+  export type ProfileCreateWithoutDocumentsInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     properties?: PropertyCreateNestedManyWithoutOwnerInput
     tenants?: TenantCreateNestedManyWithoutOwnerInput
-    financialTransactions?: FinancialTransactionCreateNestedManyWithoutUserInput
+    financialTransactions?: FinancialTransactionCreateNestedManyWithoutProfileInput
   }
 
-  export type UserUncheckedCreateWithoutDocumentsInput = {
-    id?: string
-    email: string
+  export type ProfileUncheckedCreateWithoutDocumentsInput = {
+    id: string
     firstName: string
     lastName: string
     phone?: string | null
-    authId?: string | null
+    avatarUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     properties?: PropertyUncheckedCreateNestedManyWithoutOwnerInput
     tenants?: TenantUncheckedCreateNestedManyWithoutOwnerInput
-    financialTransactions?: FinancialTransactionUncheckedCreateNestedManyWithoutUserInput
+    financialTransactions?: FinancialTransactionUncheckedCreateNestedManyWithoutProfileInput
   }
 
-  export type UserCreateOrConnectWithoutDocumentsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
+  export type ProfileCreateOrConnectWithoutDocumentsInput = {
+    where: ProfileWhereUniqueInput
+    create: XOR<ProfileCreateWithoutDocumentsInput, ProfileUncheckedCreateWithoutDocumentsInput>
   }
 
   export type PropertyUpsertWithoutDocumentsInput = {
@@ -11531,7 +11488,7 @@ export namespace Prisma {
     images?: PropertyUpdateimagesInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutPropertiesNestedInput
+    owner?: ProfileUpdateOneRequiredWithoutPropertiesNestedInput
     tenants?: TenantUpdateManyWithoutPropertyNestedInput
     financialTransactions?: FinancialTransactionUpdateManyWithoutPropertyNestedInput
   }
@@ -11561,43 +11518,41 @@ export namespace Prisma {
     financialTransactions?: FinancialTransactionUncheckedUpdateManyWithoutPropertyNestedInput
   }
 
-  export type UserUpsertWithoutDocumentsInput = {
-    update: XOR<UserUpdateWithoutDocumentsInput, UserUncheckedUpdateWithoutDocumentsInput>
-    create: XOR<UserCreateWithoutDocumentsInput, UserUncheckedCreateWithoutDocumentsInput>
-    where?: UserWhereInput
+  export type ProfileUpsertWithoutDocumentsInput = {
+    update: XOR<ProfileUpdateWithoutDocumentsInput, ProfileUncheckedUpdateWithoutDocumentsInput>
+    create: XOR<ProfileCreateWithoutDocumentsInput, ProfileUncheckedCreateWithoutDocumentsInput>
+    where?: ProfileWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutDocumentsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutDocumentsInput, UserUncheckedUpdateWithoutDocumentsInput>
+  export type ProfileUpdateToOneWithWhereWithoutDocumentsInput = {
+    where?: ProfileWhereInput
+    data: XOR<ProfileUpdateWithoutDocumentsInput, ProfileUncheckedUpdateWithoutDocumentsInput>
   }
 
-  export type UserUpdateWithoutDocumentsInput = {
+  export type ProfileUpdateWithoutDocumentsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     properties?: PropertyUpdateManyWithoutOwnerNestedInput
     tenants?: TenantUpdateManyWithoutOwnerNestedInput
-    financialTransactions?: FinancialTransactionUpdateManyWithoutUserNestedInput
+    financialTransactions?: FinancialTransactionUpdateManyWithoutProfileNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutDocumentsInput = {
+  export type ProfileUncheckedUpdateWithoutDocumentsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
-    authId?: NullableStringFieldUpdateOperationsInput | string | null
+    avatarUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     properties?: PropertyUncheckedUpdateManyWithoutOwnerNestedInput
     tenants?: TenantUncheckedUpdateManyWithoutOwnerNestedInput
-    financialTransactions?: FinancialTransactionUncheckedUpdateManyWithoutUserNestedInput
+    financialTransactions?: FinancialTransactionUncheckedUpdateManyWithoutProfileNestedInput
   }
 
   export type PropertyCreateManyOwnerInput = {
@@ -11639,7 +11594,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type FinancialTransactionCreateManyUserInput = {
+  export type FinancialTransactionCreateManyProfileInput = {
     id?: string
     type: $Enums.TransactionType
     category: $Enums.TransactionCategory
@@ -11652,7 +11607,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type DocumentCreateManyUserInput = {
+  export type DocumentCreateManyProfileInput = {
     id?: string
     type: $Enums.DocumentType
     title: string
@@ -11789,7 +11744,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FinancialTransactionUpdateWithoutUserInput = {
+  export type FinancialTransactionUpdateWithoutProfileInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     category?: EnumTransactionCategoryFieldUpdateOperationsInput | $Enums.TransactionCategory
@@ -11802,7 +11757,7 @@ export namespace Prisma {
     property?: PropertyUpdateOneWithoutFinancialTransactionsNestedInput
   }
 
-  export type FinancialTransactionUncheckedUpdateWithoutUserInput = {
+  export type FinancialTransactionUncheckedUpdateWithoutProfileInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     category?: EnumTransactionCategoryFieldUpdateOperationsInput | $Enums.TransactionCategory
@@ -11815,7 +11770,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FinancialTransactionUncheckedUpdateManyWithoutUserInput = {
+  export type FinancialTransactionUncheckedUpdateManyWithoutProfileInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     category?: EnumTransactionCategoryFieldUpdateOperationsInput | $Enums.TransactionCategory
@@ -11828,7 +11783,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DocumentUpdateWithoutUserInput = {
+  export type DocumentUpdateWithoutProfileInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
     title?: StringFieldUpdateOperationsInput | string
@@ -11842,7 +11797,7 @@ export namespace Prisma {
     property?: PropertyUpdateOneWithoutDocumentsNestedInput
   }
 
-  export type DocumentUncheckedUpdateWithoutUserInput = {
+  export type DocumentUncheckedUpdateWithoutProfileInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
     title?: StringFieldUpdateOperationsInput | string
@@ -11856,7 +11811,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type DocumentUncheckedUpdateManyWithoutUserInput = {
+  export type DocumentUncheckedUpdateManyWithoutProfileInput = {
     id?: StringFieldUpdateOperationsInput | string
     type?: EnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType
     title?: StringFieldUpdateOperationsInput | string
@@ -11928,7 +11883,7 @@ export namespace Prisma {
     notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutTenantsNestedInput
+    owner?: ProfileUpdateOneRequiredWithoutTenantsNestedInput
   }
 
   export type TenantUncheckedUpdateWithoutPropertyInput = {
@@ -11975,7 +11930,7 @@ export namespace Prisma {
     receiptUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutFinancialTransactionsNestedInput
+    profile?: ProfileUpdateOneRequiredWithoutFinancialTransactionsNestedInput
   }
 
   export type FinancialTransactionUncheckedUpdateWithoutPropertyInput = {
@@ -12015,7 +11970,7 @@ export namespace Prisma {
     fileSize?: IntFieldUpdateOperationsInput | number
     uploadedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutDocumentsNestedInput
+    profile?: ProfileUpdateOneRequiredWithoutDocumentsNestedInput
   }
 
   export type DocumentUncheckedUpdateWithoutPropertyInput = {
