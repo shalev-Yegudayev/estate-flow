@@ -16,6 +16,10 @@ export default async function HomePage({ params }: Props) {
   const t = await getTranslations('home');
   const properties = await getProperties();
 
+  const propertyCount = properties.length === 1 ?
+    t('propertyCount', { count: properties.length }) :
+    t('propertyCount_other', { count: properties.length });
+
   return (
     <>
       <div className="max-w-[1440px] mx-auto px-4 md:px-8">
@@ -24,7 +28,7 @@ export default async function HomePage({ params }: Props) {
             {t('myProperties')}
           </h1>
           <p className="text-muted-foreground">
-            {t('propertyCount', { count: properties.length })}
+            {propertyCount}
           </p>
         </div>
 

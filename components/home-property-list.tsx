@@ -56,7 +56,7 @@ export function HomePropertyList({
   return (
     <>
       <div className="flex flex-wrap items-center justify-between gap-4 py-4">
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="gap-2 min-w-[160px]">
               {selectedLabel}

@@ -91,7 +91,7 @@ export function Navbar({
         </Link>
 
         <div className="flex items-center gap-2 md:gap-4">
-          <LocaleSwitcher />
+          {/* <LocaleSwitcher /> */}
           {showNotifications && (
             <Button
               variant="ghost"
@@ -107,7 +107,7 @@ export function Navbar({
             </Button>
           )}
 
-          <DropdownMenu>
+          <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
               <ProfileButton user={user} />
             </DropdownMenuTrigger>
