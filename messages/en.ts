@@ -69,10 +69,16 @@ const en = {
     deleteProperty: 'Delete Property',
     address: 'Address',
     type: 'Property Type',
+    city: 'City',
+    country: 'Country',
     purchasePrice: 'Purchase Price',
     purchaseDate: 'Purchase Date',
     currentValue: 'Current Value',
     monthlyRent: 'Monthly Rent',
+    bedrooms: 'Bedrooms',
+    bathrooms: 'Bathrooms',
+    area: 'Area (sqm)',
+    description: 'Description',
   },
 
   footer: {

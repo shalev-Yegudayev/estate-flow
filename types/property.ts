@@ -1,9 +1,15 @@
-export type PropertyTag = 'Available' | 'Occupied' | 'Maintenance' | 'For Sale';
+/** Display tag values used by PropertyCard (must match TAG_VARIANT_MAP in property-card.tsx) */
+export type PropertyTagDisplay =
+  | 'Available'
+  | 'Occupied'
+  | 'Maintenance'
+  | 'For Sale';
 
-export interface Property {
-  id: number;
+/** Shape used for property list/card display (from DB via mapDbPropertyToCard) */
+export interface PropertyCardData {
+  id: string;
   image: string;
-  tags: PropertyTag[];
+  tags: PropertyTagDisplay[];
   address: string;
   type: string;
   bedrooms: number;
@@ -11,3 +17,6 @@ export interface Property {
   sqft: number;
   price: string;
 }
+
+/** Legacy alias for card data (id was number in mock data; now string from DB) */
+export type Property = PropertyCardData;

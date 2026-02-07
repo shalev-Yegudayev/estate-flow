@@ -69,10 +69,16 @@ const he = {
     deleteProperty: 'מחק נכס',
     address: 'כתובת',
     type: 'סוג נכס',
+    city: 'עיר',
+    country: 'מדינה',
     purchasePrice: 'מחיר רכישה',
     purchaseDate: 'תאריך רכישה',
     currentValue: 'ערך נוכחי',
     monthlyRent: 'שכר דירה חודשי',
+    bedrooms: 'חדרים',
+    bathrooms: 'מקלחות',
+    area: 'שטח (מ״ר)',
+    description: 'תיאור',
   },
 
   footer: {
