@@ -1,26 +1,15 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { useEffect, useRef } from 'react';
+import { useLocale } from 'next-intl';
+import { useEffect } from 'react';
 import { localeInfo } from '@/i18n/config';
-import { defaultLocale } from '@/i18n/config';
 import type { Locale } from '@/i18n/config';
 
-
-/** Derive locale from pathname: /he/... => he, otherwise default (en). */
-function localeFromPathname(pathname: string): Locale {
-  const segment = pathname.split('/').filter(Boolean)[0];
-  return segment === 'he' ? 'he' : defaultLocale;
-}
-
 export function DirSync() {
-  const pathname = usePathname();
-  const locale = localeFromPathname(pathname);
+  const locale = useLocale() as Locale;
   const direction = localeInfo[locale].dir;
-  const prevPathnameRef = useRef<string | null>(null);
 
   useEffect(() => {
-    prevPathnameRef.current = pathname;
     const html = document.documentElement;
     html.setAttribute('dir', direction);
     html.setAttribute('lang', locale);
@@ -29,8 +18,7 @@ export function DirSync() {
     } else {
       document.body.classList.remove('rtl');
     }
-
-  }, [pathname, locale, direction]);
+  }, [locale, direction]);
 
   return null;
 }
