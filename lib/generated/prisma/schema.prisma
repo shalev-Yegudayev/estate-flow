@@ -1,0 +1,245 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================
+// USER
+// ============================================
+
+model User {
+  id        String  @id @default(uuid())
+  email     String  @unique
+  firstName String  @map("first_name")
+  lastName  String  @map("last_name")
+  phone     String?
+
+  // Supabase auth integration
+  authId String? @unique @map("auth_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  properties            Property[]
+  tenants               Tenant[]
+  financialTransactions FinancialTransaction[]
+  documents             Document[]
+
+  @@map("users")
+}
+
+// ============================================
+// PROPERTY
+// ============================================
+
+enum PropertyType {
+  APARTMENT
+  HOUSE
+  COMMERCIAL
+  LAND
+  PARKING
+  STORAGE
+  OTHER
+}
+
+enum PropertyTag {
+  RENTED
+  VACANT
+  FOR_SALE
+  UNDER_RENOVATION
+  NEEDS_REPAIR
+}
+
+model Property {
+  id String @id @default(uuid())
+
+  // Basic Info
+  type PropertyType
+  tags PropertyTag[] // Multiple statuses support
+
+  // Location
+  address String
+  city    String
+  country String @default("IL")
+
+  // Details
+  bedrooms  Int?
+  bathrooms Decimal? @db.Decimal(3, 1)
+  area      Decimal? @db.Decimal(10, 2) // sqm
+  floor     Int?
+  yearBuilt Int?
+
+  // Financial
+  purchaseDate  DateTime? @map("purchase_date")
+  purchasePrice Decimal   @map("purchase_price") @db.Decimal(12, 2)
+  monthlyRent   Decimal?  @map("monthly_rent") @db.Decimal(10, 2)
+
+  // Additional
+  description String?  @db.Text
+  features    String[] // ["parking", "elevator", "balcony"]
+  images      String[] // Array of image URLs
+
+  // Owner
+  ownerId String @map("owner_id")
+  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  tenants               Tenant[]
+  financialTransactions FinancialTransaction[]
+  documents             Document[]
+
+  @@index([ownerId])
+  @@index([tags])
+  @@map("properties")
+}
+
+// ============================================
+// TENANT
+// ============================================
+
+model Tenant {
+  id String @id @default(uuid())
+
+  // Personal Info
+  firstName String  @map("first_name")
+  lastName  String  @map("last_name")
+  email     String?
+  phone     String
+  idNumber  String? @map("id_number")
+
+  // Rental Info
+  propertyId String   @map("property_id")
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  moveInDate      DateTime  @map("move_in_date")
+  moveOutDate     DateTime? @map("move_out_date")
+  monthlyRent     Decimal   @map("monthly_rent") @db.Decimal(10, 2)
+  securityDeposit Decimal?  @map("security_deposit") @db.Decimal(10, 2)
+
+  // Additional
+  notes String? @db.Text
+
+  // Owner
+  ownerId String @map("owner_id")
+  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([propertyId])
+  @@index([ownerId])
+  @@map("tenants")
+}
+
+// ============================================
+// FINANCIAL TRANSACTION
+// ============================================
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+enum TransactionCategory {
+  // Income
+  RENT
+  DEPOSIT
+  LATE_FEE
+  OTHER_INCOME
+
+  // Expense
+  MORTGAGE
+  TAX
+  INSURANCE
+  MAINTENANCE
+  REPAIRS
+  UTILITIES
+  MANAGEMENT_FEE
+  LEGAL
+  OTHER_EXPENSE
+}
+
+model FinancialTransaction {
+  id String @id @default(uuid())
+
+  type     TransactionType
+  category TransactionCategory
+  amount   Decimal             @db.Decimal(10, 2)
+  date     DateTime
+
+  description String?
+  receiptUrl  String? @map("receipt_url")
+
+  // Property (optional - some expenses may not be property-specific)
+  propertyId String?   @map("property_id")
+  property   Property? @relation(fields: [propertyId], references: [id], onDelete: SetNull)
+
+  // Owner
+  userId String @map("user_id")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([propertyId])
+  @@index([userId])
+  @@index([type])
+  @@index([date])
+  @@map("financial_transactions")
+}
+
+// ============================================
+// DOCUMENT
+// ============================================
+
+enum DocumentType {
+  LEASE
+  DEED
+  INSURANCE
+  RECEIPT
+  INVOICE
+  PHOTO
+  MORTGAGE
+  OTHER
+}
+
+model Document {
+  id String @id @default(uuid())
+
+  type        DocumentType
+  title       String
+  description String?
+
+  // File storage (Supabase Storage)
+  fileName String @map("file_name")
+  fileUrl  String @map("file_url")
+  mimeType String @map("mime_type")
+  fileSize Int    @map("file_size")
+
+  // Relationships (optional)
+  propertyId String?   @map("property_id")
+  property   Property? @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  userId String @map("user_id")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  uploadedAt DateTime @default(now()) @map("uploaded_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@index([propertyId])
+  @@index([userId])
+  @@index([type])
+  @@map("documents")
+}

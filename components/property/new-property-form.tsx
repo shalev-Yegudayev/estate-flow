@@ -28,7 +28,7 @@ import {
   type PropertyType,
   type PropertyTag,
   formValuesToCreateInput,
-} from "@/lib/property-schema";
+} from "@/lib/validations/property-schema";
 import { createProperty } from "@/lib/actions/property";
 
 import {

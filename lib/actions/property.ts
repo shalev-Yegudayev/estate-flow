@@ -1,14 +1,15 @@
-'use server';
+"use server";
 
-import { revalidatePath } from 'next/cache';
-import { prisma } from '@/lib/prisma';
+import { revalidatePath } from "next/cache";
+import { z } from "zod";
+import { prisma } from "@/lib/clients/prisma";
 import {
   createPropertyInputSchema,
   type CreatePropertyInput,
   type UpdatePropertyInput,
   PROPERTY_TYPES,
   PROPERTY_TAGS,
-} from '@/lib/property-schema';
+} from "@/lib/validations/property-schema";
 
 type ActionResult = { success: true; id: string } | { success: false; error: string };
 
@@ -17,12 +18,12 @@ export type { CreatePropertyInput, UpdatePropertyInput };
 export async function createProperty(input: CreatePropertyInput): Promise<ActionResult> {
   const parsed = createPropertyInputSchema.safeParse(input);
   if (!parsed.success) {
-    const first = parsed.error.flatten().fieldErrors;
+    const first = z.flattenError(parsed.error).fieldErrors;
     const message =
-      (first.purchasePrice?.[0]) ??
-      (first.address?.[0]) ??
-      (first.city?.[0]) ??
-      (first.ownerId?.[0]) ??
+      first.purchasePrice?.[0] ??
+      first.address?.[0] ??
+      first.city?.[0] ??
+      first.ownerId?.[0] ??
       parsed.error.message;
     return { success: false, error: String(message) };
   }
@@ -36,7 +37,7 @@ export async function createProperty(input: CreatePropertyInput): Promise<Action
         tags: data.tags ?? [],
         address: data.address,
         city: data.city,
-        country: data.country?.trim() ?? 'IL',
+        country: data.country?.trim() ?? "IL",
         bedrooms: data.bedrooms ?? undefined,
         bathrooms: data.bathrooms ?? undefined,
         area: data.area ?? undefined,
@@ -50,24 +51,21 @@ export async function createProperty(input: CreatePropertyInput): Promise<Action
         images: data.images ?? [],
       },
     });
-    revalidatePath('/');
+    revalidatePath("/");
     return { success: true, id: property.id };
   } catch (e) {
-    const message = e instanceof Error ? e.message : 'Failed to create property';
+    const message = e instanceof Error ? e.message : "Failed to create property";
     return { success: false, error: message };
   }
 }
 
-export async function updateProperty(
-  id: string,
-  data: UpdatePropertyInput
-): Promise<ActionResult> {
-  if (!id?.trim()) return { success: false, error: 'Property id is required' };
+export async function updateProperty(id: string, data: UpdatePropertyInput): Promise<ActionResult> {
+  if (!id?.trim()) return { success: false, error: "Property id is required" };
 
   if (data.type !== undefined && !PROPERTY_TYPES.includes(data.type))
-    return { success: false, error: 'Invalid property type' };
+    return { success: false, error: "Invalid property type" };
   if (data.tags !== undefined && data.tags.some((t) => !PROPERTY_TAGS.includes(t)))
-    return { success: false, error: 'Invalid tag' };
+    return { success: false, error: "Invalid tag" };
 
   try {
     await prisma.property.update({
@@ -93,23 +91,23 @@ export async function updateProperty(
         ...(data.images !== undefined && { images: data.images }),
       },
     });
-    revalidatePath('/');
+    revalidatePath("/");
     return { success: true, id };
   } catch (e) {
-    const message = e instanceof Error ? e.message : 'Failed to update property';
+    const message = e instanceof Error ? e.message : "Failed to update property";
     return { success: false, error: message };
   }
 }
 
 export async function deleteProperty(id: string): Promise<ActionResult> {
-  if (!id?.trim()) return { success: false, error: 'Property id is required' };
+  if (!id?.trim()) return { success: false, error: "Property id is required" };
 
   try {
     await prisma.property.delete({ where: { id } });
-    revalidatePath('/');
+    revalidatePath("/");
     return { success: true, id };
   } catch (e) {
-    const message = e instanceof Error ? e.message : 'Failed to delete property';
+    const message = e instanceof Error ? e.message : "Failed to delete property";
     return { success: false, error: message };
   }
 }
