@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Building2, Mail, Lock, Loader2, Chrome } from 'lucide-react';
@@ -24,13 +24,18 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
+import { useRouter } from '@/i18n/routing';
+import { defaultLocale } from '@/i18n/config';
 
 export function AuthForm() {
     const [mode, setMode] = useState<'login' | 'signup'>('login');
     const [isLoading, setIsLoading] = useState(false);
     const [isGoogleLoading, setIsGoogleLoading] = useState(false);
     const router = useRouter();
+    const locale = useLocale();
     const { toast } = useToast();
+
+    const homeHref = locale === defaultLocale ? '/' : `/${locale}`;
 
     const isLogin = mode === 'login';
 
@@ -98,14 +103,16 @@ export function AuthForm() {
         setIsGoogleLoading(true);
 
         try {
+            const redirectTo = `${window.location.origin}${homeHref}`;
             const { error } = await supabase.auth.signInWithOAuth({
                 provider: 'google',
                 options: {
-                    redirectTo: `${window.location.origin}/`,
+                    redirectTo,
                 },
             });
 
             if (error) throw error;
+            // On success, Supabase redirects away; loading state will unmount. Reset on error or if user returns.
         } catch (error) {
             const message =
                 error instanceof Error ? error.message : 'An error occurred. Please try again.';
@@ -114,6 +121,7 @@ export function AuthForm() {
                 title: 'Google sign-in failed',
                 description: message,
             });
+        } finally {
             setIsGoogleLoading(false);
         }
     };
